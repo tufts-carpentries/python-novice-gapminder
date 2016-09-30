@@ -11,6 +11,7 @@ objectives:
 keypoints:
 - "Python programs are plain text files."
 - "Use the Jupyter Notebook for editing and running Python."
+- "Closing a tab does not shut down the Notebook."
 - "The Notebook has Control and Edit modes."
 - "Use the keyboard and mouse to select and edit cells."
 - "The Notebook will turn Markdown into pretty-printed documentation."
@@ -54,8 +55,6 @@ keypoints:
     *   It allows you to display figures next to the code that produces them
         to tell a complete story of the analysis.
 
-FIXME: diagram
-
 > ## How It's Stored
 >
 > *   The notebook file is stored in a format called JSON.
@@ -63,6 +62,12 @@ FIXME: diagram
 > *   But this format allows Jupyter to mix software (in several languages) with documentation 
       and graphics, all in one file.
 {: .callout}
+
+## Closing a tab does not shut down the Notebook.
+
+*   Closing a tab (or the browser) does not shut down the notebook server.
+*   Use "File... Close and Halt" from the menu for each notebook.
+*   Or go to the terminal where the notebook server was run and type Ctrl-C.
 
 ## The Notebook has Control and Edit modes.
 
