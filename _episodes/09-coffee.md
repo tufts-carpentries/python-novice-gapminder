@@ -1,8 +1,8 @@
 ---
 layout: break
-title: "Lunch"
+title: "Coffee Break"
 teaching: 0
 exercises: 0
-break: 45
+break: 15
 ---
 FIXME: describe what to reflect on.

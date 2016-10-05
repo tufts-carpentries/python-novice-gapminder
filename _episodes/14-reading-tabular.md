@@ -1,7 +1,7 @@
 ---
 title: "Reading Tabular Data into DataFrames"
-teaching: 10
-exercises: 10
+teaching: 20
+exercises: 15
 questions:
 - "How can I read tabular data?"
 objectives:

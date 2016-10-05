@@ -1,4 +1,5 @@
 ---
+skip_time: true
 title: "Running and Quitting"
 teaching: 15
 exercises: 0
