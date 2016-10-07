@@ -81,7 +81,7 @@ TypeError: unsupported operand type(s) for -: 'str' and 'str'
 ~~~
 {: .error}
 
-## Strings can be added and multiplied.
+## Strings can be added and multiplied
 
 *   "Adding" character strings concatenates them.
 
@@ -108,11 +108,12 @@ print(separator)
 ~~~
 {: .output}
 
-## Strings have a length (but numbers don't).
+## Different types have different properties and methods
 
-*   The built-in function `len` counts the number of characters in a string.
+* Strings have a 'length' property  
 
 ~~~
+# The built-in function 'len' counts the number of characters in a string.
 print(len(full_name))
 ~~~
 {: .python}
@@ -137,9 +138,7 @@ TypeError: object of type 'int' has no len()
 ~~~
 {: .error}
 
-## Must convert numbers to strings or vice versa when operating on them.
-
-*   Cannot add numbers and strings.
+## Numbers can't be added directly to strings, but they can be converted
 
 ~~~
 print(1 + 'A')
@@ -156,7 +155,7 @@ TypeError: unsupported operand type(s) for +: 'int' and 'str'
 {: .error}
 
 *   Not allowed because it's ambiguous: should `1 + '2'` be `3` or `'12'`?
-*   Some types can be converted to other types by using the type name as a function.
+*   Some types can be converted to other types by using the type name as a function
 
 ~~~
 print(1 + int('2'))
@@ -169,7 +168,7 @@ print(str(1) + '2')
 ~~~
 {: .output}
 
-## Can mix integers and floats freely in operations.
+## Can mix integers and floats freely in operations
 
 *   Integers and floating-point numbers can be mixed in arithmetic.
     *   Python automatically converts integers to floats as needed.
@@ -184,29 +183,6 @@ half is 0.5
 three squared is 9.0
 ~~~
 {: .output}
-
-## Variables only change value when something is assigned to them.
-
-*   If we make one cell in a spreadsheet depend on another,
-    and update the latter,
-    the former updates automatically.
-*   This does **not** happen in programming languages.
-
-~~~
-first = 1
-second = 5 * first
-first = 2
-print('first is', first, 'and second is', second)
-~~~
-{: .python}
-~~~
-first is 2 and second is 5
-~~~
-{: .output}
-
-*   The computer reads the value of `first` when doing the multiplication,
-    creates a new value, and assigns it to `second`.
-*   After that, `second` does not remember where it came from.
 
 > ## Fractions
 >

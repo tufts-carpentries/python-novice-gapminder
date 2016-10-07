@@ -108,44 +108,23 @@ Age in three years: 45
 {: .output}
 
 ## Variables can be re-assigned
-
-*   A variable's value can be replaced with another value by using the 
-assignment operator again.
+*   A variable’s value can be replaced with another value by using the assignment operator again.
 
 ~~~
-animal = "dog"
-print(animal)
-animal = "cat"
-print(animal)
+first = 1
+second = 5 * first
+first = 2
+print('first is', first, 'and second is', second)
 ~~~
 {: .python}
 ~~~
-dog
-cat
-cat
-cat
-fish
+first is 2 and second is 5
 ~~~
 {: .output}
 
-*   Assigning a variable name to another variable applies the VALUE of
-the variable (not 'passed by reference')
-
-~~~
-animal = "cat"
-my_pet = animal
-print(my_pet)
-animal = "fish"
-print(my_pet)
-print(animal)
-~~~
-{: .python}
-~~~
-cat
-cat
-fish
-~~~
-{: .output}
+*   The computer reads the value of `first` when doing the multiplication,
+    creates a new value, and assigns it to `second`.
+*   After that, `second` does not remember where it came from.
 
 ## Python is case-sensitive.
 
