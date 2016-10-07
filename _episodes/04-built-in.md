@@ -25,14 +25,6 @@ keypoints:
 - "Python reports a runtime error when something goes wrong while a program is executing."
 - "Fix syntax errors by reading the source code, and runtime errors by tracing the program's execution."
 ---
-## Use comments to add documentation to programs.
-
-~~~
-# This sentence isn't executed by Python.
-adjustment = 0.5   # Neither is this - anything after '#' is ignored.
-~~~
-{: .python}
-
 ## A function may take zero or more arguments.
 
 *   We have seen some functions already --- now let's take a closer look.
@@ -56,6 +48,21 @@ before
 after
 ~~~
 {: .output}
+
+## Use the built-in function `len` to find the length of a string.
+
+~~~
+print(len('helium'))
+~~~
+{: .python}
+~~~
+6
+~~~
+{: .output}
+
+*   Nested functions are evaluated from the inside out,
+    just like in mathematics.
+
 
 ## Commonly-used built-in functions include `max`, `min`, and `round`.
 
