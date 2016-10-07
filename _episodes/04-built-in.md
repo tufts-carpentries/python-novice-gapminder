@@ -25,10 +25,15 @@ keypoints:
 - "Python reports a runtime error when something goes wrong while a program is executing."
 - "Fix syntax errors by reading the source code, and runtime errors by tracing the program's execution."
 ---
-## A function may take zero or more arguments.
+## Python has ~70 built in functions
+*   Built in functions are immediately available for use by the python 
+    interpreter
+*   We have already seen some of these (e.g., `print` and `type`)
+*   Others include `min`, `int`, `len`, `round`, `open`, `del`, and `help`
 
-*   We have seen some functions already --- now let's take a closer look.
-*   An *argument* is a value passed into a function.
+
+## A function may take zero or more _arguments_
+*   An *argument* is a value passed into a function, placed between parentheses.
 *   `len` takes exactly one.
 *   `int`, `str`, and `float` create a new value from an existing one.
 *   `print` takes zero or more.
@@ -49,7 +54,7 @@ after
 ~~~
 {: .output}
 
-## Use the built-in function `len` to find the length of a string.
+## Use `len` to find the length of a string
 
 ~~~
 print(len('helium'))
@@ -64,7 +69,7 @@ print(len('helium'))
     just like in mathematics.
 
 
-## Commonly-used built-in functions include `max`, `min`, and `round`.
+## Commonly-used built-in functions include `max`, `min`, and `round`
 
 *   Use `max` to find the largest value of one or more values.
 *   Use `min` to find the smallest.
@@ -82,7 +87,7 @@ print(min('a', 'A', '0'))
 ~~~
 {: .output}
 
-## Functions may only work for certain (combinations of) arguments.
+## Functions may only work for certain (combinations of) arguments
 
 *   `max` and `min` must be given at least one argument.
     *   "Largest of the empty set" is a meaningless question.
@@ -97,7 +102,7 @@ TypeError: unorderable types: str() > int()
 ~~~
 {: .error}
 
-## Functions may have default values for some arguments.
+## Functions may have default values for some arguments
 
 *   `round` will round off a floating-point number.
 *   By default, rounds to zero decimal places.
@@ -122,7 +127,7 @@ round(3.712, 1)
 ~~~
 {: .output}
 
-## Use the built-in function `help` to get help for a function.
+## Use the built-in function `help` to get help for a function
 
 *   Every built-in function has online documentation.
 
@@ -142,7 +147,15 @@ round(...)
 ~~~
 {: .output}
 
-## Python reports a syntax error when it can't understand the source of a program.
+
+## The Jupyter Notebook has two additional ways to get help
+
+*   Place the cursor inside the parenthesis of the function,
+    hold down `shift`, and press `tab`.
+*   Or type a function name with a question mark after it.
+
+
+## Python reports a syntax error when it can't understand the source of a program
 
 *   Won't even try to run the program if it can't be parsed.
 
@@ -189,7 +202,7 @@ SyntaxError: unexpected EOF while parsing
 *   Next is the problematic line of code,
     indicating the problem with a `^` pointer.
 
-## Python reports a runtime error when something goes wrong while a program is executing.
+## Python reports a runtime error when something goes wrong while a program is executing
 
 ~~~
 age = 53
@@ -203,14 +216,8 @@ NameError: name 'aege' is not defined
 
 *   Fix syntax errors by reading the source and runtime errors by tracing execution.
 
-## The Jupyter Notebook has two ways to get help.
 
-*   Place the cursor inside the parenthesis of the function,
-    hold down `shift`,
-    and press `tab`.
-*   Or type a function name with a question mark after it.
-
-## Every function returns something.
+## Every function returns something
 
 *   Every function call produces some result.
 *   If the function doesn't have a useful result to return,
