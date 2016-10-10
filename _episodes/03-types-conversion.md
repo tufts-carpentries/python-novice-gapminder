@@ -14,7 +14,6 @@ keypoints:
 - "Use the built-in function `type` to find the type of a value."
 - "Types control what operations can be done on values."
 - "Strings can be added and multiplied."
-- "Strings have a length (but numbers don't)."
 - "Must convert numbers to strings or vice versa when operating on them."
 - "Can mix integers and floats freely in operations."
 - "Variables only change value when something is assigned to them."
@@ -206,7 +205,7 @@ three squared is 9.0
 
 > ## Automatic Type Conversion
 >
-> What type of value is 3..25 + 4?
+> What type of value is 3.25 + 4?
 >
 > > ## Solution
 > >
@@ -236,29 +235,6 @@ three squared is 9.0
 > 4. A lab specimen's age.
 > 5. Current population of a city.
 > 6. Average population of a city over time.
-{: .challenge}
-
-> ## Division Types
->
-> The `//` operator calculates the whole-number result of division,
-> while the '%' operator calculates the remainder from division:
->
-> ~~~
-> print('5 // 3:', 5//3)
-> print('5 % 3:', 5%3)
-> ~~~
-> {: .python}
->
-> ~~~
-> 5 // 3: 1
-> 5 % 3: 2
-> ~~~
-> {: .output}
->
-> If `num_subjects` is the number of subjects taking part in a study,
-> and `num_per_survey` is the number that can take part in a single survey,
-> write an expression that calculates the number of surveys needed
-> to reach everyone once.
 {: .challenge}
 
 > ## Strings to Numbers
@@ -291,15 +267,18 @@ three squared is 9.0
 
 > ## Arithmetic with Different Types
 >
-> Which of the following will print 2.0?
-> Note: there may be more than one right answer.
->
 > ~~~
 > first = 1.0
 > second = "1"
 > third = "1.1"
 > ~~~
 > {: .python}
+>
+>
+> If the above were executed in a code cell, which of the following 
+> operations would print the value 2.0?
+>
+> __Note__: there may be more than one right answer.
 >
 > 1. `first + float(second)`
 > 2. `float(second) + float(third)`
@@ -312,17 +291,4 @@ three squared is 9.0
 > >
 > > Answer: 1 and 4
 > {: .solution}
-{: .challenge}
-
-> ## Complex Numbers
->
-> Python provides complex numbers,
-> which are written as `1.0+2.0j`.
-> If `val` is an imaginary number,
-> its real and imaginary parts can be accessed using *dot notation*
-> as `val.real` and `val.imag`.
->
-> 1.  Why do you think Python uses `j` instead of `i` for the imaginary part?
-> 2.  What do you expect `1+2j + 3` to produce?
-> 3.  What do you expect '4j' to be?  What about `4 j' (with a space)?
 {: .challenge}
