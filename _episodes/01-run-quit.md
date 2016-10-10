@@ -128,6 +128,23 @@ FIXME: diagram
 ### Rendered output
   </div>
 </div>
+
+<div class="row">
+  <div class="col-md-6" markdown="1">
+~~~
+Italicize with _underscores_ or *asterisks*
+
+Bold with two __underscores__ or **astrisks**
+~~~
+{: .python}
+  </div>
+  <div class="col-md-6" markdown="1">
+Italicize with _underscores_ or *asterisks*
+
+Bold with two __underscores__ or **astrisks**
+  </div>
+</div>
+
 <div class="row">
   <div class="col-md-6" markdown="1">
 ~~~
