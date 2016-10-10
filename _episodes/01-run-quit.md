@@ -214,17 +214,21 @@ Or use [named links][data_carpentry].
   </div>
 </div>
 
-> ## Creating Lists in Markdown
+> ## Practice your markdown
 >
-> Create a nested list in a Markdown cell in a notebook that looks like this:
+> Create a Markdown cell in a notebook that matches the following:
 >
-> 1.  Get funding.
-> 2.  Do work.
->     *   Design experiment.
->     *   Collect data.
->     *   Analyze.
-> 3.  Write up.
-> 4.  Publish.
+> # The basic steps of a career in science 
+>
+> 1.  Get funding
+> 2.  Do work
+>     *   Design experiment
+>     *   Collect data
+>     *   Analyze
+> 3.  Write up
+> 4.  Publish in a [high impact journal](http://www.nature.com/)
+>
+> _easy, right?_
 {: .challenge}
 
 > ## More Math
