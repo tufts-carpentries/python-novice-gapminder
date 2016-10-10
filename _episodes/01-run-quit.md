@@ -240,7 +240,20 @@ Or use [named links][data_carpentry].
   </div>
 </div>
 
-> ## Practice your markdown
+> ## A Little Math
+>
+> What is displayed when a Python cell in a notebook
+> that contains several calculations is executed?
+> For example, what happens when this cell is executed?
+>
+> ~~~
+> 7 * 3
+> 2 + 1
+> ~~~
+> {: .python}
+{: .challenge}
+
+> ## Practice Your Markdown
 >
 > Create a Markdown cell in a notebook that matches the following:
 >
@@ -255,19 +268,6 @@ Or use [named links][data_carpentry].
 > 4.  Publish in a [high impact journal](http://www.nature.com/)
 >
 > _easy, right?_
-{: .challenge}
-
-> ## More Math
->
-> What is displayed when a Python cell in a notebook
-> that contains several calculations is executed?
-> For example, what happens when this cell is executed?
->
-> ~~~
-> 7 * 3
-> 2 + 1
-> ~~~
-> {: .python}
 {: .challenge}
 
 > ## Change an Existing Cell from Code to Markdown
