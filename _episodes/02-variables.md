@@ -19,6 +19,7 @@ keypoints:
 - "Use the built-in function `len` to find the length of a string."
 - "Python is case-sensitive."
 - "Use meaningful variable names."
+- "Use comments to add documentation to programs."
 ---
 ## Use variables to store values.
 

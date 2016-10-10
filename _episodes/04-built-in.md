@@ -13,7 +13,6 @@ objectives:
 - "Use help to display documentation for built-in functions."
 - "Correctly describe situations in which SyntaxError and NameError occur."
 keypoints:
-- "Use comments to add documentation to programs."
 - "A function may take zero or more arguments."
 - "Commonly-used built-in functions include `max`, `min`, and `round`."
 - "Functions may only work for certain (combinations of) arguments."
@@ -30,16 +29,17 @@ keypoints:
     interpreter
 *   We have already seen some of these (e.g., `print` and `type`)
 *   Others include `min`, `int`, `len`, `round`, `open`, `del`, and `help`
-
+*   Functions allow us to 'encapsulate' some well described behavior, hiding the 
+underlying code so we can just focus on the input and output
 
 ## A function may take zero or more _arguments_
-*   An *argument* is a value passed into a function, placed between parentheses.
-*   `len` takes exactly one.
-*   `int`, `str`, and `float` create a new value from an existing one.
-*   `print` takes zero or more.
-*   `print` with no arguments prints a blank line.
+*   An *argument* is a value passed into a function, placed between parentheses
+*   `len` takes exactly one argument, and returns its length
+*   `int`, `str`, and `float` create a new value from an existing one
+*   `print` takes zero or more arguments
+*   `print` with no arguments prints a blank line
     *   Must always use parentheses, even if they're empty,
-        so that Python knows a function is being called.
+        so that Python knows a function is being called
 
 ~~~
 print('before')
