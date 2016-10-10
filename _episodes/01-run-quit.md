@@ -122,6 +122,14 @@ FIXME: diagram
 
 <div class="row">
   <div class="col-md-6" markdown="1">
+### Markdown examples
+  </div>
+  <div class="col-md-6" markdown="1">
+### Rendered output
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6" markdown="1">
 ~~~
 *   Use asterisks
 *   to create
@@ -149,6 +157,24 @@ FIXME: diagram
 1.  Use numbers
 1.  to create
 1.  numbered lists.
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6" markdown="1">
+~~~
+1.  Use tabs
+    * to
+    * indent
+1.  lists.
+~~~
+{: .python}
+  </div>
+  <div class="col-md-6" markdown="1">
+1.  Use tabs 
+    * to
+    * indent
+1.  lists.
   </div>
 </div>
 
