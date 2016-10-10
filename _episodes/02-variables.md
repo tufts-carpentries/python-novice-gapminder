@@ -211,8 +211,12 @@ print(adjustments)
 > {: .solution}
 {: .challenge}
 
-> ## Challenge
+> ## What Did You Have For Dinner Last Night?
 >
-> Create variables to contain relevant data about last nights dinner,
-> then print a statement that explains what, where, and when you had it.
+> In a new notebook cell create variables that contain relevant data 
+> regarding the "what, where, and when" of last night's dinner, then
+> include those variables in a `print()` command as part of a full sentence.
+>
+> Paste the output into the EitherPad, so we can all vicariously
+> enjoy your meal.
 {: .challenge}
