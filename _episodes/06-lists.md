@@ -206,6 +206,17 @@ IndexError: string index out of range
 >
 > If 'low' and 'high' are both non-negative integers,
 > how long is the list `values[low:high]`?
+>
+> > ## Solution
+> >
+> > ~~~
+> > values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+> > low = 3
+> > high = 7
+> > print(len(values[low:high]))
+> > ~~~
+> > {: python}
+> {: .solution}
 {: .challenge}
 
 > ## From Strings to Lists and Back
