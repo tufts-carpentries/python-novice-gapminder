@@ -42,7 +42,8 @@ length: 5
 
 ## Use an item's index to fetch it from a list.
 
-*   Just like strings.
+*   Items in a list are assigned an 'index' value to represent their relative order 
+*   __GotCha__: The index starts at the value __0__, not __1__, so be careful about [off-by-one](https://en.wikipedia.org/wiki/Off-by-one_error) bugs in your code
 
 ~~~
 print('zeroth item of pressures:', pressures[0])
@@ -55,7 +56,7 @@ fourth item of pressures: 0.276
 ~~~
 {: .output}
 
-## Lists' values can be replaced by assigning to them.
+## Lists' values can be replaced by assigning to them directly.
 
 *   Use an index expression on the left of assignment to replace a value.
 
@@ -111,13 +112,6 @@ primes after removing last item: [2, 3, 5, 7]
 ~~~
 {: .output}
 
-## The empty list contains no values.
-
-*   Use `[]` on its own to represent a list that doesn't contain any values.
-    *   "The zero of lists."
-*   Helpful as a starting point for collecting values
-    (which we will see in the [next episode]({{page.root}}/09-for-loops/)).
-
 ## Lists may contain values of different types.
 
 *   A single list may contain numbers, strings, and anything else.
@@ -126,6 +120,13 @@ primes after removing last item: [2, 3, 5, 7]
 goals = [1, 'Create lists.', 2, 'Extract items from lists.', 3, 'Modify lists.']
 ~~~
 {: .python}
+
+## The empty list contains no values.
+
+*   Use `[]` on its own to represent a list that doesn't contain any values.
+    *   "The zero of lists."
+*   Helpful as a starting point for collecting values
+    (which we will see in the [next episode]({{page.root}}/07-for-loops/)).
 
 ## Character strings can be indexed like lists.
 
@@ -165,7 +166,7 @@ TypeError: 'str' object does not support item assignment
 ## Indexing beyond the end of the collection is an error.
 
 *   Python reports an `IndexError` if we attempt to access a value that doesn't exist.
-    *   This is a kind of [runtime error]({{ page.root }}/05-error-messages/).
+    *   This is a kind of runtime error.
     *   Cannot be detected as the code is parsed
         because the index might be calculated based on data.
 
@@ -180,7 +181,8 @@ IndexError: string index out of range
 
 > ## Fill in the Blanks
 >
-> Fill in the blanks so that the program below produces the output shown.
+> Copy the following into a blank notebook cell and fill in the blanks 
+> so that the program produces the output shown lower down. 
 >
 > ~~~
 > values = ____
