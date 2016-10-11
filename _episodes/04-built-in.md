@@ -278,6 +278,14 @@ result of print is None
 > ## Why Not?
 >
 > Why don't `max` and `min` return `None` when they are given no arguments?
+>
+> > ## Solution
+> >
+> > Consider that `None` signifies the successful execution of a 
+> > function that doesn't otherwise return a value. Such a response 
+> > would be nonsensical, because no comparison is possible on an empty
+> > set of arguments.
+> {: .solution}
 {: .challenge}
 
 > ## Last Character of a String
