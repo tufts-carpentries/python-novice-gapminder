@@ -16,6 +16,7 @@ keypoints:
 - "Loop variables can be called anything (but it is strongly advised to have a meaningful name to the looping variable)."
 - "The body of a loop can contain many statements."
 - "Use `range` to iterate over a sequence of numbers."
+- "Use `enumerate` to keep track of index **and** values from a for-loop over a list"
 - "The Accumulator pattern turns many values into one."
 ---
 ## A *for-loop* executes commands once for each value in a collection.
