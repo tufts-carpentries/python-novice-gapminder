@@ -58,19 +58,34 @@ NameError: name 'temperature' is not defined
 
 > ## Local and Global Variable Use
 >
-> Trace the values of all variables in this program as it is executed.
-> (Use '---' as the value of variables before and after they exist.)
+> Trace the value of each variable in this program during execution.
 >
 > ~~~
 > limit = 100
->
+> 
 > def clip(value):
->     return min(max(0.0, value), limit)
->
+>    value = max(0.0, value) 
+>    value = min(value, limit)
+>    return value
+> 
 > value = -22.5
-> print(clip(value))
+> clipped = clip(value)
 > ~~~
 > {: .python}
+>
+> Which of the following is true?
+>
+> ~~~
+> a. limit = 100    value = -22.5  clipped = 0.0
+> b. limit = 0.0    value = 0.0    clipped = 0.0
+> c. limit = -22.5  value = -22.5  clipped = 100
+> d. limit = 100    value = 0.0    clipped = -22.5
+> ~~~
+> {: .output}
+>
+> > ## Solution
+> > a.
+> {: .solution}
 {: .challenge}
 
 > ## Identifying Syntax Errors
