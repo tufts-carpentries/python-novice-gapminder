@@ -21,7 +21,8 @@ keypoints:
 *   A *library* is a collection of functions that can be used by other programs.
     *   May also contain data values (e.g., numerical constants).
     *   Library's contents are supposed to be related, but there's no way to enforce that.
-*   Python's [standard library][stdlib] is installed with it.
+*   Python comes installed with a [standard library][stdlib] of 188 libraries (as of Python 3.5)
+    *   These libraries represent thousands of individual functions
 *   Many additional libraries are available from [PyPI][pypi] (the Python Package Index).
 *   We will see later how to write new libraries.
 
@@ -126,6 +127,19 @@ cos(pi) is -1.0
 > 1. What function from the `math` library can you use to calculate a square root
 >    *without* using `sqrt`?
 > 2. Since the library contains this function, why does `sqrt` exist?
+>
+> > ## Hint
+> > 
+> > 1. Use `help(math)` to get a list of all available functions
+> > 1. Square root can also be expressed as something raised to the power 1/2
+> {: .solution}
+>
+> > ## Solution
+> >
+> > ~~~
+> > math.pow(4, 1/2)
+> > ~~~
+> {: .solution}
 {: .challenge}
 
 > ## Locating the Right Library
