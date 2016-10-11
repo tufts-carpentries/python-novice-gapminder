@@ -57,12 +57,12 @@ Hello!
 ~~~
 {: .output}
 
-## Arguments in call are matched to parameters in definition.
+## The arguments in a function *call* are matched to the parameters in function *definition*.
 
 *   Functions are most useful when they can operate on different data.
 *   Specify *parameters* when defining a function.
     *   These become variables when the function is executed.
-    *   Are assigned the arguments in the call (i.e., the values passed to the function).
+    *   The values of incoming arguments are assigned to these variables in order.
 
 ~~~
 def print_date(year, month, day):
@@ -77,23 +77,24 @@ print_date(1871, 3, 19)
 ~~~
 {: .output}
 
-*   Via [Twitter](https://twitter.com/minisciencegirl/status/693486088963272705):
+*   A cleaver way to think about this is that the
     `()` contains the ingredients for the function
-    while the body contains the recipe.
+    while the body contains the recipe ([via Twitter](https://twitter.com/minisciencegirl/status/693486088963272705)).
 
-## Functions may return a result to their caller using `return`.
+## Functions may send back a result using the `return` statement.
 
 *   Use `return ...` to give a value back to the caller.
-*   May occur anywhere in the function.
-*   But functions are easier to understand if `return` occurs:
-    *   At the start to handle special cases.
+*   May occur anywhere in the function, but...
+*   Functions are easier to understand if `return` occurs:
+    *   Near the beginning to handle special cases.
     *   At the very end, with a final result.
 
 ~~~
 def average(values):
     if len(values) == 0:
         return None
-    return sum(values) / len(values)
+    output = sum(values) / len(values)
+    return output
 ~~~
 {: .python}
 
@@ -116,17 +117,20 @@ None
 ~~~
 {: .output}
 
-*   Remember: [every function returns something]({{ page.root }}/04-built-in/).
+## Remember that every function returns something, even if 'something' equals `None`
 *   A function that doesn't explicitly `return` a value automatically returns `None`.
 
 ~~~
-result = print_date(1871, 3, 19)
-print('result of call is:', result)
+def greeting(message):
+    print(message)
+
+result = greeting("Hello World!)
+print('The result of the call to greeting is:', result)
 ~~~
 {: .python}
 ~~~
-1871/3/19
-result of call is: None
+Hello World!
+The result of the call to greeting is: None
 ~~~
 {: .output}
 
