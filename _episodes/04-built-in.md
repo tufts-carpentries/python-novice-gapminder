@@ -65,7 +65,7 @@ print(len('helium'))
 ~~~
 {: .output}
 
-*   Nested functions are evaluated from the inside out,
+*   __Note__: nested functions are evaluated from the inside out,
     just like in mathematics.
 
 
@@ -88,6 +88,18 @@ print(min('a', 'A', '0'))
 {: .output}
 
 ## Functions may only work for certain (combinations of) arguments
+
+* `len` does not work when passed in a number because the result would
+be ambiguous. For example, what is the 'length' of 10?
+
+~~~
+print(len(10))
+~~~
+{: .python}
+~~~
+TypeError: object of type 'int' has no len()
+~~~
+{: .error}
 
 *   `max` and `min` must be given at least one argument.
     *   "Largest of the empty set" is a meaningless question.
