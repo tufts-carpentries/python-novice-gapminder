@@ -180,6 +180,22 @@ cos(pi) is -1.0
 > {: .error}
 >
 > What has your colleague forgotten to do?
+>
+> > ## Hint
+> > 
+> > Think back to variable assignment. You can't use a variable if it hasn't
+> > been assigned a value yet, so...
+> {: .solution}
+>
+> > ## Solution
+> >
+> > Unless the library has been imported, it cannot be used by any other function (including help).
+> >
+> > ~~~
+> > import math
+> > help(math)
+> > ~~~
+> {: .solution}
 {: .challenge}
 
 > ## Importing With Aliases
