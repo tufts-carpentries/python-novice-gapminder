@@ -152,31 +152,46 @@ a range is not a list: range(0, 3)
 ~~~
 {: .output}
 
+## Use `enumerate` to keep track of the index value at each step in the loop
+
+*   The built-in function `enumerate` returns two values at each step of a loop
+
+~~~
+for indx, number in enumerate([1, 2, 3]):
+    print("Index", indx, "=", number)
+~~~
+{: .python}
+
+~~~
+Index 0 = 1
+Index 1 = 2
+Index 2 = 3
+~~~
+{: .output}
+
 ## The Accumulator pattern turns many values into one.
 
 *   A common pattern in programs is to:
-    1.  Initialize an *accumulator* variable to zero, the empty string, or the empty list.
+    1.  Initialize an *accumulator* variable to zero, an empty string, or an empty list.
     2.  Update the variable with values from a collection.
 
 ~~~
 # Sum the first 10 integers.
 total = 0
 for number in range(10):
-   total = total + (number + 1)
+   total += (number + 1)
 print(total)
 ~~~
 {: .python}
 ~~~
-55
+45
 ~~~
 {: .output}
 
-*   Read `total = total + (number + 1)` as:
-    *   Add 1 to the current value of the loop variable `number`.
-    *   Add that to the current value of the accumulator variable `total`.
-    *   Assign that to `total`, replacing the current value.
-*   We have to add `number + 1` because `range` produces 0..9, not 1..10.
-
+*   We add `(number + 1)` because `range` produces 0..9, not 1..10.
+*   The "plus-equals" `+=` operator means "add the following to the current value of the variable"
+    *   Other basic operators work similarly: `-=`, `*=`, `\=`, etc.
+        
 > ## Classifying Errors
 >
 > Is an indentation error a syntax error or a runtime error?
