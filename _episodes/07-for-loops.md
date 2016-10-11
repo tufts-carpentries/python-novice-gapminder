@@ -1,28 +1,28 @@
 ---
-title: "For Loops"
+title: "For-Loops"
 teaching: 15
 exercises: 15
 questions:
 - "How can I make a program do many things?"
 objectives:
-- "Explain what for loops are normally used for."
+- "Explain what for-loops are normally used for."
 - "Trace the execution of a simple (unnested) loop and correctly state the values of variables in each iteration."
-- "Write for loops that use the Accumulator pattern to aggregate values."
+- "Write for-loops that use the Accumulator pattern to aggregate values."
 keypoints:
-- "A *for loop* executes commands once for each value in a collection."
-- "The first line of the `for` loop must end with a colon, and the body must be indented."
+- "A *for-loop* executes commands once for each value in a collection."
+- "The first line of the `for'-loop must end with a colon, and the body must be indented."
 - "Indentation is always meaningful in Python."
-- "A `for` loop is made up of a collection, a loop variable, and a body."
+- "A `for'-loop is made up of a collection, a loop variable, and a body."
 - "Loop variables can be called anything (but it is strongly advised to have a meaningful name to the looping variable)."
 - "The body of a loop can contain many statements."
 - "Use `range` to iterate over a sequence of numbers."
 - "The Accumulator pattern turns many values into one."
 ---
-## A *for loop* executes commands once for each value in a collection.
+## A *for-loop* executes commands once for each value in a collection.
 
 *   Doing calculations on the values in a list one by one
     is as painful as working with `pressure_001`, `pressure_002`, etc.
-*   A *for loop* tells Python to execute some statements once for each value in a list,
+*   A *for-loop* tells Python to execute some statements once for each value in a list,
     a character string,
     or some other collection.
 *   "for each thing in this group, do these operations"
@@ -33,7 +33,7 @@ for number in [2, 3, 5]:
 ~~~
 {: .python}
 
-*   This `for` loop is equivalent to:
+*   This `for`-loop is equivalent to:
 
 ~~~
 print(2)
@@ -42,7 +42,7 @@ print(5)
 ~~~
 {: .python}
 
-*   And the `for` loop's output is:
+*   And the `for`-loop's output is:
 
 ~~~
 2
@@ -51,7 +51,7 @@ print(5)
 ~~~
 {: .output}
 
-## The first line of the `for` loop must end with a colon, and the body must be indented.
+## The first line of the `for`-loop must end with a colon, and the body must be indented.
 
 *   The colon at the end of the first line signals the start of a *block* of statements.
 *   Python uses indentation rather than `{}` or `begin`/`end` to show *nesting*.
@@ -85,7 +85,7 @@ IndentationError: unexpected indent
 *   This error can be fixed by removing the extra spaces
     at the beginning of the second line.
 
-## A `for` loop is made up of a collection, a loop variable, and a body.
+## A `for'-loop is made up of a collection, a loop variable, and a body.
 
 ~~~
 for number in [2, 3, 5]:
