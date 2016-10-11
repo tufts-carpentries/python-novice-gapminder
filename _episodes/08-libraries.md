@@ -144,13 +144,29 @@ cos(pi) is -1.0
 
 > ## Locating the Right Library
 >
-> You want to select a random character from a string:
+> You want to select a **random** character from a string:
+>
 > ~~~
 > bases = 'ACTTGCTTGAC'
 > ~~~
+>{: .python}
 >
 > 1. What [standard library][stdlib] would you most expect to help?
 > 2. Which function would you select from that library? Are there alternatives?
+>
+> > ## Hint
+> > 
+> > More specifically, have a look at the [Numeric and Mathematical Modules](https://docs.python.org/3/library/numeric.html)
+> {: .solution}
+>
+> > ## Solution
+> >
+> > ~~~
+> > from random import choice
+> > bases = 'ACTTGCTTGAC'
+> > print(choice(bases))
+> > ~~~
+> {: .solution}
 {: .challenge}
 
 > ## When Is Help Available?
