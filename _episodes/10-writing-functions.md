@@ -11,7 +11,7 @@ keypoints:
 - "Break programs down into functions to make them easier to understand."
 - "Define a function using `def` with a name, parameters, and a block of code."
 - "Defining a function does not run it."
-- "Arguments in call are matched to parameters in definition."
+- "Arguments in a function *call* are matched to parameters in function *definition*."
 - "Functions may return a result to their caller using `return`."
 ---
 ## Break programs down into functions to make them easier to understand.
@@ -143,6 +143,8 @@ The result of the call to greeting is: None
 >     print('pressure is', pressure)
 >
 > print('calling', report, 22.5)
+> ~~~
+> {: .python}
 {: .challenge}
 
 > ## Order of Operations
@@ -156,6 +158,7 @@ The result of the call to greeting is: None
 > {: .python}
 >
 > printed:
+>
 > ~~~
 > 1871/3/19
 > result of call is: None
@@ -211,7 +214,6 @@ The result of the call to greeting is: None
 >
 > 1.  When have you seen a function call like this before?
 > 2.  When and why is it useful to call functions this way?
-> {: .python}
 {: .challenge}
 
 > ## Encapsulating Data Analysis
