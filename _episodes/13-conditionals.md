@@ -173,37 +173,6 @@ final velocity: 30.0
 ~~~
 {: .output}
 
-## Create a table showing variables' values to trace a program's execution.
-
-<table>
-  <tr>
-    <td><strong>i</strong></td>
-    <td>0</td>
-    <td>.</td>
-    <td>1</td>
-    <td>.</td>
-    <td>2</td>
-    <td>.</td>
-    <td>3</td>
-    <td>.</td>
-    <td>4</td>
-    <td>.</td>
-  </tr>
-  <tr>
-    <td><strong>velocity</strong></td>
-    <td>10.0</td>
-    <td>20.0</td>
-    <td>.</td>
-    <td>30.0</td>
-    <td>.</td>
-    <td>25.0</td>
-    <td>.</td>
-    <td>20.0</td>
-    <td>.</td>
-    <td>30.0</td>
-  </tr>
-</table>
-
 *   The program must have a `print` statement *outside* the body of the loop
     to show the final value of `velocity`,
     since its value is updated by the last iteration of the loop.
@@ -257,13 +226,31 @@ final velocity: 30.0
 >
 > ~~~
 > pressure = 71.9
-> if pressure 50.0:
+> if pressure > 50.0:
 >     pressure = 25.0
 > elif pressure <= 50.0:
 >     pressure = 0.0
 > print(pressure)
 > ~~~
 > {: .python}
+>
+> > ## Hint
+> > 
+> > The variable '`pressure`' is being updated. Is there any logical way
+> > that either the '`if`' or '`elif`' will _not_ evaluate to `True`? Do
+> > you think Python would allow _both_ '`if`' and '`elif`' to evaluate 
+> > to `True`?
+> {: .solution}
+>
+> > ## Solution
+> > 
+> > answer: 25.0
+> > 
+> > 71.9 is greater than 50.0, so the '`if`' statement evaluates to `True`.
+> > Once an '`if`' or '`elif`' evaluates to `True` the remaining
+> > conditionals are skipped, so even though pressure is now < 50.0, it
+> > is not reassigned to 0.0 in the '`elif`' statement.
+> {: .solution}
 {: .challenge}
 
 > ## Trimming Values
@@ -288,7 +275,6 @@ final velocity: 30.0
 > [0, 1, 1, 1, 0, 1]
 > ~~~
 > {: .output}
-
 {: .challenge}
 
 > ## Initializing
@@ -312,5 +298,3 @@ final velocity: 30.0
 > What are the advantages and disadvantages of using this method
 > to find the range of the data?
 {: .challenge}
-
-{: .callout}
