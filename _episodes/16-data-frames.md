@@ -211,17 +211,28 @@ max      13450.401510    16361.876470    18965.055510
 
 > ## Selection of Individual Values
 >
-> Assume Pandas has been imported into your notebook
-> and the Gapminder GDP data for Europe has been loaded:
+> Load the Gapminder GDP data for Europe into a dataframe:
 >
 > ~~~
-> import pandas
->
-> df = pandas.read_csv('data/gapminder_gdp_europe.csv', index_col='country')
+> europe_df = pandas.read_csv('data/gapminder_gdp_europe.csv', index_col='country')
 > ~~~
 > {: .python}
 >
 > Write an expression to find the Per Capita GDP of Serbia in 2007.
+>
+> > ## Hint
+> > 
+> > Try using the '`ix`' method
+> {: .solution}
+>
+> > ## Solution
+> >
+> > ~~~
+> > # You can specify a particular peice of data by referencing its coordinate headings
+> > print(europe_df.ix["Serbia", "gdpPercap_2007"])
+> > ~~~
+> > {: .python}
+> {: .solution}
 {: .challenge}
 
 > ## Extent of Slicing
@@ -235,6 +246,30 @@ max      13450.401510    16361.876470    18965.055510
 > print(data.ix['Albania':'Belgium', 'gdpPercap_1952':'gdpPercap_1962'])
 > ~~~
 > {: .python}
+>
+> > ## Hint
+> > 
+> > Try it! Put the statements into a notebook cell.
+> {: .solution}
+>
+> > ## Solution
+> >
+> > ~~~
+> >          gdpPercap_1952  gdpPercap_1957
+> > country                                
+> > Albania     1601.056136     1942.284244
+> > Austria     6137.076492     8842.598030
+> >          gdpPercap_1952  gdpPercap_1957  gdpPercap_1962
+> > country                                                
+> > Albania     1601.056136     1942.284244     2312.888958
+> > Austria     6137.076492     8842.598030    10750.721110
+> > Belgium     8343.105127     9714.960623    10991.206760
+> > ~~~
+> > {: .output}
+> > Numbered indexing **is not** inclusive of the second half of the slice
+> > (i.e., index '2', in this case, is not included), while label 
+> > indexing **is** inclusive.
+> {: .solution}
 {: .challenge}
 
 > ## Reconstructing Data
@@ -243,38 +278,95 @@ max      13450.401510    16361.876470    18965.055510
 > what is in `first`, `second`, etc.?
 >
 > ~~~
-> first = pandas.read_csv('data/gapminder_gdp_all.csv', index_col='country')
-> second = df[df['continent'] == 'Americas']
+> first = pandas.read_csv('gapminder/gapminder_all.csv', index_col='country')
+> second = first[first['continent'] == 'Americas']
 > third = second.drop('Puerto Rico')
 > fourth = third.drop('continent', axis = 1)
 > fourth.to_csv('result.csv')
 > ~~~
 > {: .python}
+>
+> > ## Solution
+> >
+> > ~~~
+> > # Reads a CSV file into a new dataframe
+> > first = pandas.read_csv('gapminder/gapminder_all.csv', index_col='country')
+> >
+> > # Selects only those rows with the value 'Americas' in the 'continent' column 
+> > second = first[first['continent'] == 'Americas']
+> > 
+> > # Remove the 'Puerto Rico' row
+> > third = second.drop('Puerto Rico')
+> >
+> > # Remove the 'continent' column
+> > fourth = third.drop('continent', axis = 1)
+> >
+> > # Write data to a new file
+> > fourth.to_csv('result.csv')
+> > ~~~
+> > {: .python}
+> {: .solution}
 {: .challenge}
 
 > ## Selecting Indices
 >
 > Explain in simple terms what `idxmin` and `idxmax` do in the short program below.
-> When would you use these methods?
+> When might you use these methods?
 >
 > ~~~
-> data = pandas.load_csv('data/gapminder_gdp_europe.csv', index_col='country')
+> data = pandas.read_csv('gapminder/gapminder_gdp_europe.csv', index_col='country')
 > print(data.idxmin())
 > print(data.idxmax())
 > ~~~
 > {: .python}
+>
+> > ## Hint
+> > 
+> > Don't forget about the '`help`' method
+> > 
+> > Compare the output of `print(data.idxmin())` to the output of `print(data)`
+> {: .solution}
+>
+> > ## Solution
+> >
+> > '`idxmax`' returns the label of the row with the highest value in 
+> > each column, and '`idxmin`' returns the minimum.
+> > 
+> > These methods could be useful when looking for outliers in your data. 
+> {: .solution}
 {: .challenge}
 
 > ## Practice with Selection
 >
-> Assume Pandas has been imported and the Gapminder GDP data for Europe has been loaded.
-> Write an expression to select each of the following:
+> Write an expression to select each of the following from the Europe data:
 >
 > 1.  GDP per capita for all countries in 1982.
-> 2.  GDP per capita for Denmark for all years.
-> 3.  GDP per capita for all countries for years *after* 1985.
-> 4.  GDP per capita for each country in 2007 as a multiple of 
->     GDP per capita for that country in 1952.
+> 1.  GDP per capita for Denmark for all years.
+> 1.  GDP per capita for all countries for years *after* 1985.
+> 1.  GDP per capita for each country in 2007 as a multiple of GDP per capita for that country in 1952.
+>
+> > ## Hint
+> > 
+> > Everything can be done with the '`ix`' method
+> {: .solution}
+>
+> > ## Solution
+> >
+> > ~~~
+> > # GDP per capita for all countries in 1982.
+> > europe_df.ix[:, "gdpPercap_1982"]
+> >
+> > # GDP per capita for Denmark for all years.
+> > europe_df.ix["Denmark", :]
+> > 
+> > # GDP per capita for all countries for years *after* 1985.
+> > europe_df.ix[:, "gdpPercap_1985":]
+> >
+> > # GDP per capita for each country in 2007 as a multiple of GDP per capita for that country in 1952.
+> > europe_df.ix[:, "gdpPercap_2007"] * europe_df.ix[:, "gdpPercap_1952"]
+> > ~~~
+> > {: .python}
+> {: .solution}
 {: .challenge}
 
 > ## Using Functions With Conditionals in Pandas
