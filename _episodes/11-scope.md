@@ -122,4 +122,14 @@ NameError: name 'temperature' is not defined
 > KeyError: 'Friday'
 > ~~~
 > {: .error}
+>
+>
+> > ## Solution
+> >
+> > 1. 3
+> > 1. print_message()
+> > 1. 11
+> > 1. KeyError
+> > 1. KeyError: 'Friday'
+> {: .solution}
 {: .challenge}
