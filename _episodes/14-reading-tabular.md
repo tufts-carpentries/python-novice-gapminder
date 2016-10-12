@@ -183,10 +183,12 @@ gdpPercap_2007  34435.36744  25185.00911
 
 DataFrame.describe() gets the summary statistics of only the columns that have numerical data. 
 All other columns are ignored.
+
 ~~~
 print(data.describe())
 ~~~
 {: .python}
+
 ~~~
        gdpPercap_1952  gdpPercap_1957  gdpPercap_1962  gdpPercap_1967  \
 count        2.000000        2.000000        2.000000        2.000000
@@ -227,8 +229,17 @@ max      23424.766830    26997.936570    30687.754730    34435.367440
 >
 > Read the data in `gapminder_gdp_americas.csv`
 > (which should be in the same directory as `gapminder_gdp_oceania.csv`)
-> into a variable called `americas`
+> into a variable called '`americas`'
 > and display its summary statistics.
+>
+> > ## Solution
+> > 
+> > ~~~
+> > americas = pandas.read_csv('gapminder/gapminder_gdp_americas.csv')
+> > print(americas.describe())
+> > ~~~
+> > {: .python}
+> {: .solution}
 {: .challenge}
 
 > ## Inspecting Data.
@@ -237,9 +248,29 @@ max      23424.766830    26997.936570    30687.754730    34435.367440
 > use `help(americas.head)` and `help(americas.tail)`
 > to find out what `DataFrame.head` and `DataFrame.tail` do.
 >
-> 1.  What method call will display the first three rows of this data?
-> 2.  What method call will display the last three columns of this data?
->     (Hint: you may need to change your view of the data.)
+> 1.  What method call will display the first three **rows** of this data?
+> 2.  What method call will display the last three **columns** of this data?
+> 
+> > ## Hints
+> > 
+> > The '`head`' and '`tail`' methods perform similarly to their bash counterparts.
+> >
+> > You may need to change your view of the data to get the columns instead of the rows.
+> {: .solution}
+>
+> > ## Solution
+> >
+> > ~~~
+> > # To get the first three rows of data, use `head`
+> > print(americas.head(3))
+> > 
+> > # To get the last three columns of data, you first need to transpose 
+> > # the dataframe, and then use `tail`
+> > americas = americas.T
+> > print(americas.tail(3))
+> > ~~~
+> > {: .python}
+> {: .solution}
 {: .challenge}
 
 > ## Reading Files in Other Directories
