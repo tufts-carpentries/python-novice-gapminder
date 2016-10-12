@@ -288,21 +288,7 @@ final velocity: 30.0
 > [0, 1, 1, 1, 0, 1]
 > ~~~
 > {: .output}
-{: .challenge}
 
-> ## Processing Small Files
->
-> Modify this program so that it only processes files with fewer than 50 records.
->
-> ~~~
-> import glob
-> import pandas
-> for filename in glob.glob('data/*.csv'):
->     contents = pandas.read_csv(filename)
->     ____:
->         print(filename, len(contents))
-> ~~~
-> {: .python}
 {: .challenge}
 
 > ## Initializing
