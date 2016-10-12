@@ -329,6 +329,22 @@ max      13450.401510    16361.876470    18965.055510
 
 {: .challenge}
 
+> ## Processing Small Files
+>
+> Modify this program so that it only processes files with fewer than 50 records.
+>
+> ~~~
+> import glob
+> import pandas
+> for filename in glob.glob('data/*.csv'):
+>     contents = pandas.read_csv(filename)
+>     ____:
+>         print(filename, len(contents))
+> ~~~
+> {: .python}
+
+{: .challenge}
+
 > ## Interpretation
 >
 > Poland's borders have been stable since 1945,
