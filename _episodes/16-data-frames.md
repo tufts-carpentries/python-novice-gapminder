@@ -263,7 +263,6 @@ max      13450.401510    16361.876470    18965.055510
 > print(data.idxmax())
 > ~~~
 > {: .python}
-
 {: .challenge}
 
 > ## Practice with Selection
@@ -276,6 +275,7 @@ max      13450.401510    16361.876470    18965.055510
 > 3.  GDP per capita for all countries for years *after* 1985.
 > 4.  GDP per capita for each country in 2007 as a multiple of 
 >     GDP per capita for that country in 1952.
+{: .challenge}
 
 > ## Using Functions With Conditionals in Pandas
 >
@@ -326,7 +326,6 @@ max      13450.401510    16361.876470    18965.055510
 > column in the dataframe called `data` labeled `lifExp`.  We use the
 > `apply()` to do what it says, apply the `calculate_life_quartile` to the
 > value of this column for every row in the dataframe.
-
 {: .challenge}
 
 > ## Processing Small Files
@@ -342,7 +341,6 @@ max      13450.401510    16361.876470    18965.055510
 >         print(filename, len(contents))
 > ~~~
 > {: .python}
-
 {: .challenge}
 
 > ## Interpretation
