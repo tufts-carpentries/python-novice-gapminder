@@ -14,7 +14,6 @@ keypoints:
 - "Use `else` to execute a block of code when an `if` condition is *not* true."
 - "Use `elif` to specify additional tests."
 - "Conditions are tested once, in order."
-- "Create a table showing variables' values to trace a program's execution."
 ---
 ## Use `if` statements to control whether or not a block of code is executed.
 
@@ -296,22 +295,50 @@ final velocity: 30.0
 
 > ## Initializing
 >
-> Modify this program so that it finds the largest and smallest values in the list
-> no matter what the range of values originally is.
+> Fill in the blanks.
+>
+> This function should find the largest and smallest values in a list.
 >
 > ~~~
-> values = [...some test data...]
-> smallest, largest = None, None
-> for v in values:
->     if ____:
->         smallest, largest = v, v
->     ____:
->         smallest = min(____, v)
->         largest = max(____, v)
-> print(smallest, largest)
+> def min_max(values):
+>     smallest, largest = None, None
+>     for v in values:
+>         if ____:
+>             smallest, largest = v, v
+>         ____:
+>             smallest = min(____, v)
+>             largest = max(____, v)
+>     return ____
+> 
+> print(min_max([...some test data...]))
 > ~~~
 > {: .python}
 >
-> What are the advantages and disadvantages of using this method
-> to find the range of the data?
+> > ## Hint
+> > 
+> > What does '`None`' resolve to if evaluated in a conditional?
+> >
+> > The '`if`' statement should only execute on the first iteration of the for-loop
+> >
+> > Don't forget to add some actual numbers to the list passed to min_max()!
+> {: .solution}
+> 
+> > ## Solution
+> > 
+> > ~~~
+> > def min_max(values):
+> >     smallest, largest = None, None  # Initialize some variables but don't set any actual values (you don't know what the `values` list will contain a priori)
+> >     for v in values:
+> >         if not smallest:  # `None` evaluates to `False`, so the 'double negative' evalutes to `True` on the first pass through the for-loop
+> >             smallest, largest = v, v  # Now it's time to set actual values to `smallest` and `largest`
+> >         else:
+> >             # After the first pass through the loop, every `v` will be checked against the current min and max
+> >             smallest = min(smallest, v)
+> >             largest = max(largest, v)
+> >     return smallest, largest
+> > 
+> > print(min_max([...some test data...]))
+> > ~~~
+> > {: .python}
+> {: .solution}
 {: .challenge}
