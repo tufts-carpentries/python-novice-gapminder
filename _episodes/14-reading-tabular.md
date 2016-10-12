@@ -30,7 +30,7 @@ keypoints:
 ~~~
 import pandas
 
-data = pandas.read_csv('data/gapminder_gdp_oceania.csv')
+data = pandas.read_csv('gapminder/gapminder_gdp_oceania.csv')
 print(data)
 ~~~
 {: .python}
@@ -58,12 +58,12 @@ print(data)
 
 > ## File Not Found
 >
-> Our lessons store their data files in a `data` sub-directory,
-> which is why the path to the file is `data/gapminder_gdp_oceania.csv`.
-> If you forget to include `data/`,
-> or if you include it but your copy of the file is somewhere else,
-> you will get a [runtime error]({{ page.root }}/05-error-messages/)
-> that ends with a line like this:
+> Our lessons store their data files in the `gapminder` sub-directory of
+> the GitHub repository at https://github.com/biologyguy/swc-data.git,
+> which is why the path to the file is `gapminder/gapminder_gdp_oceania.csv`.
+> If you forget to include `gapminder/`,
+> or if you launched your Jupyter notebook in some other directory,
+> you will get a runtime error that ends with a line like this:
 >
 > ~~~
 > OSError: File b'gapminder_gdp_oceania.csv' does not exist
