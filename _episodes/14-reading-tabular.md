@@ -275,9 +275,9 @@ max      23424.766830    26997.936570    30687.754730    34435.367440
 
 > ## Reading Files in Other Directories
 >
-> The data for your current project is stored in a file called `microbes.csv`,
-> which is located in a folder called `field_data`.
-> You are doing analysis in a notebook called `analysis.ipynb`
+> Pretend that the data for your current project is stored in a file 
+> called `microbes.csv`, which is located in a folder called `field_data`.
+> If you are doing your analysis in a notebook called `analysis.ipynb`
 > in a sibling folder called `thesis`:
 >
 > ~~~
@@ -290,6 +290,20 @@ max      23424.766830    26997.936570    30687.754730    34435.367440
 > {: .output}
 >
 > What value(s) should you pass to `read_csv` to read `microbes.csv` in `analysis.ipynb`?
+>
+> > ## Hint
+> > 
+> > How would you navigate to the desired folder from the command line?
+> {: .solution}
+>
+> > ## Solution
+> >
+> > ~~~
+> > # Use '..' to construct a relative path
+> > microbes_df = pandas.read_csv('../field_data/microbes.csv')
+> > ~~~
+> > {: .python}
+> {: .solution}
 {: .challenge}
 
 > ## Writing Data
