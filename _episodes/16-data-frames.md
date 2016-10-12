@@ -264,6 +264,19 @@ max      13450.401510    16361.876470    18965.055510
 > ~~~
 > {: .python}
 
+{: .challenge}
+
+> ## Practice with Selection
+>
+> Assume Pandas has been imported and the Gapminder GDP data for Europe has been loaded.
+> Write an expression to select each of the following:
+>
+> 1.  GDP per capita for all countries in 1982.
+> 2.  GDP per capita for Denmark for all years.
+> 3.  GDP per capita for all countries for years *after* 1985.
+> 4.  GDP per capita for each country in 2007 as a multiple of 
+>     GDP per capita for that country in 1952.
+
 > ## Using Functions With Conditionals in Pandas
 >
 > Functions will often contain conditionals.  Here is a short example that
@@ -314,18 +327,6 @@ max      13450.401510    16361.876470    18965.055510
 > `apply()` to do what it says, apply the `calculate_life_quartile` to the
 > value of this column for every row in the dataframe.
 
-{: .challenge}
-
-> ## Practice with Selection
->
-> Assume Pandas has been imported and the Gapminder GDP data for Europe has been loaded.
-> Write an expression to select each of the following:
->
-> 1.  GDP per capita for all countries in 1982.
-> 2.  GDP per capita for Denmark for all years.
-> 3.  GDP per capita for all countries for years *after* 1985.
-> 4.  GDP per capita for each country in 2007 as a multiple of 
->     GDP per capita for that country in 1952.
 {: .challenge}
 
 > ## Interpretation
