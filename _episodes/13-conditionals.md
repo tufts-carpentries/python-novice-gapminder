@@ -255,9 +255,10 @@ final velocity: 30.0
 
 > ## Trimming Values
 >
-> Fill in the blanks so that this program creates a new list
-> containing zeroes where the original list's values were negative
-> and ones where the origina list's values were positive.
+> Fill in the blanks.
+>
+> The `result` should be a new list of 1's and 0's, where positive values 
+> are converted to 1's, and negative values are converted to 0's.
 >
 > ~~~
 > original = [-1.5, 0.2, 0.4, 0.0, -1.3, 0.4]
@@ -272,9 +273,25 @@ final velocity: 30.0
 > {: .python}
 >
 > ~~~
+> # Predicted output
 > [0, 1, 1, 1, 0, 1]
 > ~~~
 > {: .output}
+>
+> > ## Solution
+> > 
+> > ~~~
+> > original = [-1.5, 0.2, 0.4, 0.0, -1.3, 0.4]
+> > result = []
+> > for value in original:
+> >     if value < 0:
+> >         result.append(0)
+> >     else:
+> >         result.append(1)
+> > print(result)
+> > ~~~
+> > {: .python}
+> {: .solution}
 {: .challenge}
 
 > ## Initializing
