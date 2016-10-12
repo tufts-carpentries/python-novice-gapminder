@@ -308,9 +308,20 @@ max      23424.766830    26997.936570    30687.754730    34435.367440
 
 > ## Writing Data
 > 
-> As well as the `read_csv` function for reading data from a file,
-> Pandas provides a `to_csv` function to write dataframes to files.
-> Applying what you've learned about reading from files,
-> write one of your dataframes to a file called `processed.csv`.
-> You can use `help` to get information on how to use `to_csv`.
+> As well as the '`read_csv`' function for reading data from a file,
+> Pandas provides a '`to_csv`' function to write dataframes to files.
+> Write a dataframe to a file called '`processed.csv`'.
+>
+> > ## Hint
+> > 
+> > Try using the `help` function to get information about `to_csv`
+> {: .solution}
+>
+> > ## Solution
+> >
+> > ~~~
+> > americas.to_csv('processed.csv')
+> > ~~~
+> > {: .python}
+> {: .solution}
 {: .challenge}
