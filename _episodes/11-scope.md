@@ -127,6 +127,7 @@ NameError: name 'temperature' is not defined
 > > ## Solution
 > >
 > > 1. 3
+> > 1. errors_02.py
 > > 1. print_message()
 > > 1. 11
 > > 1. KeyError
