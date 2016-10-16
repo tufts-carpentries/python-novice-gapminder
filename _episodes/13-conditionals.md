@@ -1,4 +1,5 @@
 ---
+start: true
 title: "Conditionals"
 teaching: 10
 exercises: 15
@@ -13,7 +14,6 @@ keypoints:
 - "Use `else` to execute a block of code when an `if` condition is *not* true."
 - "Use `elif` to specify additional tests."
 - "Conditions are tested once, in order."
-- "Create a table showing variables' values to trace a program's execution."
 ---
 ## Use `if` statements to control whether or not a block of code is executed.
 
@@ -172,37 +172,6 @@ final velocity: 30.0
 ~~~
 {: .output}
 
-## Create a table showing variables' values to trace a program's execution.
-
-<table>
-  <tr>
-    <td><strong>i</strong></td>
-    <td>0</td>
-    <td>.</td>
-    <td>1</td>
-    <td>.</td>
-    <td>2</td>
-    <td>.</td>
-    <td>3</td>
-    <td>.</td>
-    <td>4</td>
-    <td>.</td>
-  </tr>
-  <tr>
-    <td><strong>velocity</strong></td>
-    <td>10.0</td>
-    <td>20.0</td>
-    <td>.</td>
-    <td>30.0</td>
-    <td>.</td>
-    <td>25.0</td>
-    <td>.</td>
-    <td>20.0</td>
-    <td>.</td>
-    <td>30.0</td>
-  </tr>
-</table>
-
 *   The program must have a `print` statement *outside* the body of the loop
     to show the final value of `velocity`,
     since its value is updated by the last iteration of the loop.
@@ -256,20 +225,39 @@ final velocity: 30.0
 >
 > ~~~
 > pressure = 71.9
-> if pressure 50.0:
+> if pressure > 50.0:
 >     pressure = 25.0
 > elif pressure <= 50.0:
 >     pressure = 0.0
 > print(pressure)
 > ~~~
 > {: .python}
+>
+> > ## Hint
+> > 
+> > The variable '`pressure`' is being updated. Is there any logical way
+> > that either the '`if`' or '`elif`' will _not_ evaluate to `True`? Do
+> > you think Python would allow _both_ '`if`' and '`elif`' to evaluate 
+> > to `True`?
+> {: .solution}
+>
+> > ## Solution
+> > 
+> > answer: 25.0
+> > 
+> > 71.9 is greater than 50.0, so the '`if`' statement evaluates to `True`.
+> > Once an '`if`' or '`elif`' evaluates to `True` the remaining
+> > conditionals are skipped, so even though pressure is now < 50.0, it
+> > is not reassigned to 0.0 in the '`elif`' statement.
+> {: .solution}
 {: .challenge}
 
 > ## Trimming Values
 >
-> Fill in the blanks so that this program creates a new list
-> containing zeroes where the original list's values were negative
-> and ones where the origina list's values were positive.
+> Fill in the blanks.
+>
+> The `result` should be a new list of 1's and 0's, where positive values 
+> are converted to 1's, and negative values are converted to 0's.
 >
 > ~~~
 > original = [-1.5, 0.2, 0.4, 0.0, -1.3, 0.4]
@@ -284,95 +272,73 @@ final velocity: 30.0
 > {: .python}
 >
 > ~~~
+> # Predicted output
 > [0, 1, 1, 1, 0, 1]
 > ~~~
 > {: .output}
-{: .challenge}
-
-> ## Processing Small Files
 >
-> Modify this program so that it only processes files with fewer than 50 records.
->
-> ~~~
-> import glob
-> import pandas
-> for filename in glob.glob('data/*.csv'):
->     contents = pandas.read_csv(filename)
->     ____:
->         print(filename, len(contents))
-> ~~~
-> {: .python}
+> > ## Solution
+> > 
+> > ~~~
+> > original = [-1.5, 0.2, 0.4, 0.0, -1.3, 0.4]
+> > result = []
+> > for value in original:
+> >     if value < 0:
+> >         result.append(0)
+> >     else:
+> >         result.append(1)
+> > print(result)
+> > ~~~
+> > {: .python}
+> {: .solution}
 {: .challenge}
 
 > ## Initializing
 >
-> Modify this program so that it finds the largest and smallest values in the list
-> no matter what the range of values originally is.
+> Fill in the blanks.
+>
+> This function should find the largest and smallest values in a list.
 >
 > ~~~
-> values = [...some test data...]
-> smallest, largest = None, None
-> for v in values:
->     if ____:
->         smallest, largest = v, v
->     ____:
->         smallest = min(____, v)
->         largest = max(____, v)
-> print(smallest, largest)
+> def min_max(values):
+>     smallest, largest = None, None
+>     for v in values:
+>         if ____:
+>             smallest, largest = v, v
+>         ____:
+>             smallest = min(____, v)
+>             largest = max(____, v)
+>     return ____
+> 
+> print(min_max([...some test data...]))
 > ~~~
 > {: .python}
 >
-> What are the advantages and disadvantages of using this method
-> to find the range of the data?
+> > ## Hint
+> > 
+> > What does '`None`' resolve to if evaluated in a conditional?
+> >
+> > The '`if`' statement should only execute on the first iteration of the for-loop
+> >
+> > Don't forget to add some actual numbers to the list passed to min_max()!
+> {: .solution}
+> 
+> > ## Solution
+> > 
+> > ~~~
+> > def min_max(values):
+> >     smallest, largest = None, None  # Initialize some variables but don't set any actual values (you don't know what the `values` list will contain a priori)
+> >     for v in values:
+> >         if not smallest:  # `None` evaluates to `False`, so the 'double negative' evalutes to `True` on the first pass through the for-loop
+> >             smallest, largest = v, v  # Now it's time to set actual values to `smallest` and `largest`
+> >         else:
+> >             # After the first pass through the loop, every `v` will be checked against the current min and max
+> >             smallest = min(smallest, v)
+> >             largest = max(largest, v)
+> >     return smallest, largest
+> > 
+> > print(min_max([...some test data...]))
+> > ~~~
+> > {: .python}
+> {: .solution}
 {: .challenge}
-
-> ## Using Functions With Conditionals in Pandas
->
-> Functions will often contain conditionals.  Here is a short example that
-> will indicate which quartile the argument is in based on hand-coded values
-> for the quartile cut points.
->
-> ~~~
-> def calculate_life_quartile(exp):
->     if exp < 58.41:
->         # This observation is in the first quartile
->         return 1
->     elif exp >= 58.41 and exp < 67.05:
->         # This observation is in the second quartile
->        return 2
->     elif exp >= 67.05 and exp < 71.70:
->         # This observation is in the third quartile
->        return 3
->     elif exp >= 71.70:
->         # This observation is in the fourth quartile
->        return 4
->     else:
->         # This observation has bad data
->        return None
->
-> calculate_life_quartile(62.5)
-> ~~~
-> {: .python}
->
-> ~~~
-> 2
-> ~~~
-> {: .output}
->
-> That function would typically be used within a `for` loop, but Pandas has
-> a different, more efficient way of doing the same thing, and that is by
-> *applying* a function to a dataframe or a portion of a dataframe.  Here
-> is an example, using the definition above.
->
-> ~~~
-> data = pd.read_csv('Americas-data.csv')
-> data['life_qrtl'] = data['lifeExp'].apply(calculate_life_quartile)
-> ~~~
-> {: .python}
->
-> There is a lot in that second line, so let's take it piece by piece.
-> On the right side of the `=` we start with `data['lifeExp']`, which is the
-> column in the dataframe called `data` labeled `lifExp`.  We use the
-> `apply()` to do what it says, apply the `calculate_life_quartile` to the
-> value of this column for every row in the dataframe.
-{: .callout}

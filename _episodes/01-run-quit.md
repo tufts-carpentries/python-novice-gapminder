@@ -1,4 +1,5 @@
 ---
+skip_time: true
 title: "Running and Quitting"
 teaching: 15
 exercises: 0
@@ -126,6 +127,31 @@ keypoints:
 
 <div class="row">
   <div class="col-md-6" markdown="1">
+### Markdown examples
+  </div>
+  <div class="col-md-6" markdown="1">
+### Rendered output
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6" markdown="1">
+~~~
+Italicize with _underscores_ or *asterisks*
+
+Bold with two __underscores__ or **astrisks**
+~~~
+{: .python}
+  </div>
+  <div class="col-md-6" markdown="1">
+Italicize with _underscores_ or *asterisks*
+
+Bold with two __underscores__ or **astrisks**
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6" markdown="1">
 ~~~
 *   Use asterisks
 *   to create
@@ -153,6 +179,24 @@ keypoints:
 1.  Use numbers
 1.  to create
 1.  numbered lists.
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6" markdown="1">
+~~~
+1.  Use tabs
+    * to
+    * indent
+1.  lists.
+~~~
+{: .python}
+  </div>
+  <div class="col-md-6" markdown="1">
+1.  Use tabs 
+    * to
+    * indent
+1.  lists.
   </div>
 </div>
 
@@ -218,20 +262,7 @@ Or use [named links][data_carpentry].
   </div>
 </div>
 
-> ## Creating Lists in Markdown
->
-> Create a nested list in a Markdown cell in a notebook that looks like this:
->
-> 1.  Get funding.
-> 2.  Do work.
->     *   Design experiment.
->     *   Collect data.
->     *   Analyze.
-> 3.  Write up.
-> 4.  Publish.
-{: .challenge}
-
-> ## More Math
+> ## A Little Math
 >
 > What is displayed when a Python cell in a notebook
 > that contains several calculations is executed?
@@ -242,6 +273,23 @@ Or use [named links][data_carpentry].
 > 2 + 1
 > ~~~
 > {: .python}
+{: .challenge}
+
+> ## Practice Your Markdown
+>
+> Create a Markdown cell in a notebook that matches the following:
+>
+> # The basic steps of a career in science 
+>
+> 1.  Get funding
+> 2.  Do work
+>     *   Design experiment
+>     *   Collect data
+>     *   Analyze
+> 3.  Write up
+> 4.  Publish in a [high impact journal](http://www.nature.com/)
+>
+> _easy, right?_
 {: .challenge}
 
 > ## Change an Existing Cell from Code to Markdown

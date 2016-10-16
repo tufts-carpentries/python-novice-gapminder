@@ -1,28 +1,29 @@
 ---
-title: "For Loops"
-teaching: 10
+title: "For-Loops"
+teaching: 15
 exercises: 15
 questions:
 - "How can I make a program do many things?"
 objectives:
-- "Explain what for loops are normally used for."
+- "Explain what for-loops are normally used for."
 - "Trace the execution of a simple (unnested) loop and correctly state the values of variables in each iteration."
-- "Write for loops that use the Accumulator pattern to aggregate values."
+- "Write for-loops that use the Accumulator pattern to aggregate values."
 keypoints:
-- "A *for loop* executes commands once for each value in a collection."
-- "The first line of the `for` loop must end with a colon, and the body must be indented."
+- "A *for-loop* executes commands once for each value in a collection."
+- "The first line of the `for'-loop must end with a colon, and the body must be indented."
 - "Indentation is always meaningful in Python."
-- "A `for` loop is made up of a collection, a loop variable, and a body."
+- "A `for'-loop is made up of a collection, a loop variable, and a body."
 - "Loop variables can be called anything (but it is strongly advised to have a meaningful name to the looping variable)."
 - "The body of a loop can contain many statements."
 - "Use `range` to iterate over a sequence of numbers."
+- "Use `enumerate` to keep track of index **and** values from a for-loop over a list"
 - "The Accumulator pattern turns many values into one."
 ---
-## A *for loop* executes commands once for each value in a collection.
+## A *for-loop* executes commands once for each value in a collection.
 
 *   Doing calculations on the values in a list one by one
     is as painful as working with `pressure_001`, `pressure_002`, etc.
-*   A *for loop* tells Python to execute some statements once for each value in a list,
+*   A *for-loop* tells Python to execute some statements once for each value in a list,
     a character string,
     or some other collection.
 *   "for each thing in this group, do these operations"
@@ -33,7 +34,7 @@ for number in [2, 3, 5]:
 ~~~
 {: .python}
 
-*   This `for` loop is equivalent to:
+*   This `for`-loop is equivalent to:
 
 ~~~
 print(2)
@@ -42,7 +43,7 @@ print(5)
 ~~~
 {: .python}
 
-*   And the `for` loop's output is:
+*   And the `for`-loop's output is:
 
 ~~~
 2
@@ -51,7 +52,7 @@ print(5)
 ~~~
 {: .output}
 
-## The first line of the `for` loop must end with a colon, and the body must be indented.
+## The first line of the `for`-loop must end with a colon, and the body must be indented.
 
 *   The colon at the end of the first line signals the start of a *block* of statements.
 *   Python uses indentation rather than `{}` or `begin`/`end` to show *nesting*.
@@ -85,7 +86,7 @@ IndentationError: unexpected indent
 *   This error can be fixed by removing the extra spaces
     at the beginning of the second line.
 
-## A `for` loop is made up of a collection, a loop variable, and a body.
+## A `for'-loop is made up of a collection, a loop variable, and a body.
 
 ~~~
 for number in [2, 3, 5]:
@@ -152,31 +153,46 @@ a range is not a list: range(0, 3)
 ~~~
 {: .output}
 
+## Use `enumerate` to keep track of the index value at each step in the loop
+
+*   The built-in function `enumerate` returns two values at each step of a loop
+
+~~~
+for indx, number in enumerate([1, 2, 3]):
+    print("Index", indx, "=", number)
+~~~
+{: .python}
+
+~~~
+Index 0 = 1
+Index 1 = 2
+Index 2 = 3
+~~~
+{: .output}
+
 ## The Accumulator pattern turns many values into one.
 
 *   A common pattern in programs is to:
-    1.  Initialize an *accumulator* variable to zero, the empty string, or the empty list.
+    1.  Initialize an *accumulator* variable to zero, an empty string, or an empty list.
     2.  Update the variable with values from a collection.
 
 ~~~
 # Sum the first 10 integers.
 total = 0
 for number in range(10):
-   total = total + (number + 1)
+   total += (number + 1)
 print(total)
 ~~~
 {: .python}
 ~~~
-55
+45
 ~~~
 {: .output}
 
-*   Read `total = total + (number + 1)` as:
-    *   Add 1 to the current value of the loop variable `number`.
-    *   Add that to the current value of the accumulator variable `total`.
-    *   Assign that to `total`, replacing the current value.
-*   We have to add `number + 1` because `range` produces 0..9, not 1..10.
-
+*   We add `(number + 1)` because `range` produces 0..9, not 1..10.
+*   The "plus-equals" `+=` operator means "add the following to the current value of the variable"
+    *   Other basic operators work similarly: `-=`, `*=`, `\=`, etc.
+        
 > ## Classifying Errors
 >
 > Is an indentation error a syntax error or a runtime error?

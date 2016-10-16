@@ -58,47 +58,45 @@ NameError: name 'temperature' is not defined
 
 > ## Local and Global Variable Use
 >
-> Trace the values of all variables in this program as it is executed.
-> (Use '---' as the value of variables before and after they exist.)
+> Trace the value of each variable in this program during execution.
 >
 > ~~~
 > limit = 100
->
+> 
 > def clip(value):
->     return min(max(0.0, value), limit)
->
+>    value = max(0.0, value) 
+>    value = min(value, limit)
+>    return value
+> 
 > value = -22.5
-> print(clip(value))
+> clipped = clip(value)
 > ~~~
 > {: .python}
+>
+> Which of the following is true?
+>
+> ~~~
+> a. limit = 100    value = -22.5  clipped = 0.0
+> b. limit = 0.0    value = 0.0    clipped = 0.0
+> c. limit = -22.5  value = -22.5  clipped = 100
+> d. limit = 100    value = 0.0    clipped = -22.5
+> ~~~
+> {: .output}
+>
+> > ## Solution
+> > a.
+> {: .solution}
 {: .challenge}
 
-> ## Identifying Syntax Errors
->
-> 1. Read the code below and try to identify what the errors are
->    *without* running it.
-> 2. Run the code and read the error message.
->    Is it a `SyntaxError` or an `IndentationError`?
-> 3. Fix the error.
-> 4. Repeat steps 2 and 3 until you have fixed all the errors.
->
-> ~~~
-> def another_function
->   print("Syntax errors are annoying.")
->    print("But at least python tells us about them!")
->   print("So they are usually not too hard to fix.")
-> ~~~
-> {: .python}
-{: .challenge}
 
 > ## Reading Error Messages
 >
 > Read the traceback below, and identify the following:
 >
-> 1. How many levels does the traceback have?
+> 1. How many 'levels' does this traceback have (i.e., how many scopes does it pass through)?
 > 2. What is the file name where the error occurred?
 > 3. What is the function name where the error occurred?
-> 4. On which line number in this function did the error occurr?
+> 4. On which line number in this function did the error occur?
 > 5. What is the type of error?
 > 6. What is the error message?
 >
@@ -124,4 +122,15 @@ NameError: name 'temperature' is not defined
 > KeyError: 'Friday'
 > ~~~
 > {: .error}
+>
+>
+> > ## Solution
+> >
+> > 1. 3
+> > 1. errors_02.py
+> > 1. print_message()
+> > 1. 11
+> > 1. KeyError
+> > 1. KeyError: 'Friday'
+> {: .solution}
 {: .challenge}

@@ -13,7 +13,6 @@ objectives:
 - "Use help to display documentation for built-in functions."
 - "Correctly describe situations in which SyntaxError and NameError occur."
 keypoints:
-- "Use comments to add documentation to programs."
 - "A function may take zero or more arguments."
 - "Commonly-used built-in functions include `max`, `min`, and `round`."
 - "Functions may only work for certain (combinations of) arguments."
@@ -25,24 +24,22 @@ keypoints:
 - "Python reports a runtime error when something goes wrong while a program is executing."
 - "Fix syntax errors by reading the source code, and runtime errors by tracing the program's execution."
 ---
-## Use comments to add documentation to programs.
+## Python has ~70 built in functions
+*   Built in functions are immediately available for use by the python 
+    interpreter
+*   We have already seen some of these (e.g., `print` and `type`)
+*   Others include `min`, `int`, `len`, `round`, `open`, `del`, and `help`
+*   Functions allow us to 'encapsulate' some well described behavior, hiding the 
+underlying code so we can just focus on the input and output
 
-~~~
-# This sentence isn't executed by Python.
-adjustment = 0.5   # Neither is this - anything after '#' is ignored.
-~~~
-{: .python}
-
-## A function may take zero or more arguments.
-
-*   We have seen some functions already --- now let's take a closer look.
-*   An *argument* is a value passed into a function.
-*   `len` takes exactly one.
-*   `int`, `str`, and `float` create a new value from an existing one.
-*   `print` takes zero or more.
-*   `print` with no arguments prints a blank line.
+## A function may take zero or more _arguments_
+*   An *argument* is a value passed into a function, placed between parentheses
+*   `len` takes exactly one argument, and returns its length
+*   `int`, `str`, and `float` create a new value from an existing one
+*   `print` takes zero or more arguments
+*   `print` with no arguments prints a blank line
     *   Must always use parentheses, even if they're empty,
-        so that Python knows a function is being called.
+        so that Python knows a function is being called
 
 ~~~
 print('before')
@@ -57,7 +54,22 @@ after
 ~~~
 {: .output}
 
-## Commonly-used built-in functions include `max`, `min`, and `round`.
+## Use `len` to find the length of a string
+
+~~~
+print(len('helium'))
+~~~
+{: .python}
+~~~
+6
+~~~
+{: .output}
+
+*   __Note__: nested functions are evaluated from the inside out,
+    just like in mathematics.
+
+
+## Commonly-used built-in functions include `max`, `min`, and `round`
 
 *   Use `max` to find the largest value of one or more values.
 *   Use `min` to find the smallest.
@@ -75,7 +87,19 @@ print(min('a', 'A', '0'))
 ~~~
 {: .output}
 
-## Functions may only work for certain (combinations of) arguments.
+## Functions may only work for certain (combinations of) arguments
+
+* `len` does not work when passed in a number because the result would
+be ambiguous. For example, what is the 'length' of 10?
+
+~~~
+print(len(10))
+~~~
+{: .python}
+~~~
+TypeError: object of type 'int' has no len()
+~~~
+{: .error}
 
 *   `max` and `min` must be given at least one argument.
     *   "Largest of the empty set" is a meaningless question.
@@ -90,7 +114,7 @@ TypeError: unorderable types: str() > int()
 ~~~
 {: .error}
 
-## Functions may have default values for some arguments.
+## Functions may have default values for some arguments
 
 *   `round` will round off a floating-point number.
 *   By default, rounds to zero decimal places.
@@ -115,7 +139,7 @@ round(3.712, 1)
 ~~~
 {: .output}
 
-## Use the built-in function `help` to get help for a function.
+## Use the built-in function `help` to get help for a function
 
 *   Every built-in function has online documentation.
 
@@ -135,7 +159,15 @@ round(...)
 ~~~
 {: .output}
 
-## Python reports a syntax error when it can't understand the source of a program.
+
+## The Jupyter Notebook has two additional ways to get help
+
+*   Place the cursor inside the parenthesis of the function,
+    hold down `shift`, and press `tab`.
+*   Or type a function name with a question mark after it.
+
+
+## Python reports a syntax error when it can't understand the source of a program
 
 *   Won't even try to run the program if it can't be parsed.
 
@@ -182,7 +214,7 @@ SyntaxError: unexpected EOF while parsing
 *   Next is the problematic line of code,
     indicating the problem with a `^` pointer.
 
-## Python reports a runtime error when something goes wrong while a program is executing.
+## Python reports a runtime error when something goes wrong while a program is executing
 
 ~~~
 age = 53
@@ -196,14 +228,8 @@ NameError: name 'aege' is not defined
 
 *   Fix syntax errors by reading the source and runtime errors by tracing execution.
 
-## The Jupyter Notebook has two ways to get help.
 
-*   Place the cursor inside the parenthesis of the function,
-    hold down `shift`,
-    and press `tab`.
-*   Or type a function name with a question mark after it.
-
-## Every function returns something.
+## Every function returns something
 
 *   Every function call produces some result.
 *   If the function doesn't have a useful result to return,
@@ -252,6 +278,14 @@ result of print is None
 > ## Why Not?
 >
 > Why don't `max` and `min` return `None` when they are given no arguments?
+>
+> > ## Solution
+> >
+> > Consider that `None` signifies the successful execution of a 
+> > function that doesn't otherwise return a value. Such a response 
+> > would be nonsensical, because no comparison is possible on an empty
+> > set of arguments.
+> {: .solution}
 {: .challenge}
 
 > ## Last Character of a String

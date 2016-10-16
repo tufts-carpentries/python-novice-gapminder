@@ -6,7 +6,7 @@
   <h2 id="schedule">Schedule</h2>
 
   {% assign day = 0 %}
-  {% assign multiday = false %}
+  {% assign multiday = true %}
   {% for episode in site.episodes %}
     {% if episode.start %}{% assign multiday = true %}{% break %}{% endif %}
   {% endfor %}
@@ -32,7 +32,11 @@
     {% assign minutes = current | modulo: 60 %}
     <tr>
       {% if multiday %}<td class="col-md-1">{% if episode.start %}Day {{ day }}{% endif %}</td>{% endif %}
-      <td class="col-md-1">{% if hours < 10 %}0{% endif %}{{ hours }}:{% if minutes < 10 %}0{% endif %}{{ minutes }}</td>
+        {% if episode.skip_time != true %}
+        <td class="col-md-1">{% if hours < 10 %}0{% endif %}{{ hours }}:{% if minutes < 10 %}0{% endif %}{{ minutes }}</td>
+        {% else %}
+        <td class="col-md-1"></td>
+        {% endif %}
       <td class="col-md-3">
         <a href="{{ page.root }}{{ episode.url }}">{{ episode.title }}</a>
       </td>
@@ -64,7 +68,7 @@
   </table>
 
   <p>
-    The actual schedule may vary slightly depending on the topics and exercises chosen by the instructor.
+    The actual schedule may vary slightly as the workshop progresses.
   </p>
 
 </div>

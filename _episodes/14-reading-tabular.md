@@ -1,7 +1,7 @@
 ---
 title: "Reading Tabular Data into DataFrames"
-teaching: 10
-exercises: 10
+teaching: 20
+exercises: 15
 questions:
 - "How can I read tabular data?"
 objectives:
@@ -30,7 +30,7 @@ keypoints:
 ~~~
 import pandas
 
-data = pandas.read_csv('data/gapminder_gdp_oceania.csv')
+data = pandas.read_csv('gapminder/gapminder_gdp_oceania.csv')
 print(data)
 ~~~
 {: .python}
@@ -58,12 +58,12 @@ print(data)
 
 > ## File Not Found
 >
-> Our lessons store their data files in a `data` sub-directory,
-> which is why the path to the file is `data/gapminder_gdp_oceania.csv`.
-> If you forget to include `data/`,
-> or if you include it but your copy of the file is somewhere else,
-> you will get a [runtime error]({{ page.root }}/05-error-messages/)
-> that ends with a line like this:
+> Our lessons store their data files in the `gapminder` sub-directory of
+> the GitHub repository at https://github.com/biologyguy/swc-data.git,
+> which is why the path to the file is `gapminder/gapminder_gdp_oceania.csv`.
+> If you forget to include `gapminder/`,
+> or if you launched your Jupyter notebook in some other directory,
+> you will get a runtime error that ends with a line like this:
 >
 > ~~~
 > OSError: File b'gapminder_gdp_oceania.csv' does not exist
@@ -183,10 +183,12 @@ gdpPercap_2007  34435.36744  25185.00911
 
 DataFrame.describe() gets the summary statistics of only the columns that have numerical data. 
 All other columns are ignored.
+
 ~~~
 print(data.describe())
 ~~~
 {: .python}
+
 ~~~
        gdpPercap_1952  gdpPercap_1957  gdpPercap_1962  gdpPercap_1967  \
 count        2.000000        2.000000        2.000000        2.000000
@@ -227,8 +229,17 @@ max      23424.766830    26997.936570    30687.754730    34435.367440
 >
 > Read the data in `gapminder_gdp_americas.csv`
 > (which should be in the same directory as `gapminder_gdp_oceania.csv`)
-> into a variable called `americas`
+> into a variable called '`americas`'
 > and display its summary statistics.
+>
+> > ## Solution
+> > 
+> > ~~~
+> > americas = pandas.read_csv('gapminder/gapminder_gdp_americas.csv')
+> > print(americas.describe())
+> > ~~~
+> > {: .python}
+> {: .solution}
 {: .challenge}
 
 > ## Inspecting Data.
@@ -237,16 +248,36 @@ max      23424.766830    26997.936570    30687.754730    34435.367440
 > use `help(americas.head)` and `help(americas.tail)`
 > to find out what `DataFrame.head` and `DataFrame.tail` do.
 >
-> 1.  What method call will display the first three rows of this data?
-> 2.  What method call will display the last three columns of this data?
->     (Hint: you may need to change your view of the data.)
+> 1.  What method call will display the first three **rows** of this data?
+> 2.  What method call will display the last three **columns** of this data?
+> 
+> > ## Hints
+> > 
+> > The '`head`' and '`tail`' methods perform similarly to their bash counterparts.
+> >
+> > You may need to change your view of the data to get the columns instead of the rows.
+> {: .solution}
+>
+> > ## Solution
+> >
+> > ~~~
+> > # To get the first three rows of data, use `head`
+> > print(americas.head(3))
+> > 
+> > # To get the last three columns of data, you first need to transpose 
+> > # the dataframe, and then use `tail`
+> > americas = americas.T
+> > print(americas.tail(3))
+> > ~~~
+> > {: .python}
+> {: .solution}
 {: .challenge}
 
 > ## Reading Files in Other Directories
 >
-> The data for your current project is stored in a file called `microbes.csv`,
-> which is located in a folder called `field_data`.
-> You are doing analysis in a notebook called `analysis.ipynb`
+> Pretend that the data for your current project is stored in a file 
+> called `microbes.csv`, which is located in a folder called `field_data`.
+> If you are doing your analysis in a notebook called `analysis.ipynb`
 > in a sibling folder called `thesis`:
 >
 > ~~~
@@ -259,13 +290,38 @@ max      23424.766830    26997.936570    30687.754730    34435.367440
 > {: .output}
 >
 > What value(s) should you pass to `read_csv` to read `microbes.csv` in `analysis.ipynb`?
+>
+> > ## Hint
+> > 
+> > How would you navigate to the desired folder from the command line?
+> {: .solution}
+>
+> > ## Solution
+> >
+> > ~~~
+> > # Use '..' to construct a relative path
+> > microbes_df = pandas.read_csv('../field_data/microbes.csv')
+> > ~~~
+> > {: .python}
+> {: .solution}
 {: .challenge}
 
 > ## Writing Data
 > 
-> As well as the `read_csv` function for reading data from a file,
-> Pandas provides a `to_csv` function to write dataframes to files.
-> Applying what you've learned about reading from files,
-> write one of your dataframes to a file called `processed.csv`.
-> You can use `help` to get information on how to use `to_csv`.
+> As well as the '`read_csv`' function for reading data from a file,
+> Pandas provides a '`to_csv`' function to write dataframes to files.
+> Write a dataframe to a file called '`processed.csv`'.
+>
+> > ## Hint
+> > 
+> > Try using the `help` function to get information about `to_csv`
+> {: .solution}
+>
+> > ## Solution
+> >
+> > ~~~
+> > americas.to_csv('processed.csv')
+> > ~~~
+> > {: .python}
+> {: .solution}
 {: .challenge}

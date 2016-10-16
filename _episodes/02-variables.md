@@ -1,6 +1,7 @@
 ---
+start: true
 title: "Variables and Assignment"
-teaching: 10
+teaching: 15
 exercises: 10
 questions:
 - "How can I store data in programs?"
@@ -18,6 +19,7 @@ keypoints:
 - "Use the built-in function `len` to find the length of a string."
 - "Python is case-sensitive."
 - "Use meaningful variable names."
+- "Use comments to add documentation to programs."
 ---
 ## Use variables to store values.
 
@@ -106,55 +108,24 @@ Age in three years: 45
 ~~~
 {: .output}
 
-## Use an index to get a single character from a string.
-
-*   Sometimes called a "subscript".
-*   Each character in a string is in a particular location.
-*   Use the location's index in square brackets to get the character.
-*   Locations are numbered from 0 rather than 1.
+## Variables can be re-assigned
+*   A variable’s value can be replaced with another value by using the assignment operator again.
 
 ~~~
-element = 'helium'
-print(element[0])
+first = 1
+second = 5 * first
+first = 2
+print('first is', first, 'and second is', second)
 ~~~
 {: .python}
 ~~~
-h
+first is 2 and second is 5
 ~~~
 {: .output}
 
-## Use a slice to get a substring.
-
-*   A slice extracts elements, based on a start and stop value
-*   A slice consists of `[start:stop]`.
-*   From the start value (inclusive) up to but not including the stop value (exclusive).
-*   So the difference between stop and start is the slice's length.
-
-~~~
-element = 'sodium'
-print(element[0:3])
-~~~
-{: .python}
-~~~
-sod
-~~~
-{: .output}
-
-## Use the built-in function `len` to find the length of a string.
-
-~~~
-print(len('helium'))
-~~~
-{: .python}
-~~~
-6
-~~~
-{: .output}
-
-*   Nested functions are evaluated from the inside out,
-    just like in mathematics.
-
-FIXME: need to introduce slices
+*   The computer reads the value of `first` when doing the multiplication,
+    creates a new value, and assigns it to `second`.
+*   After that, `second` does not remember where it came from.
 
 ## Python is case-sensitive.
 
@@ -177,6 +148,21 @@ print(ewr_422_yY, 'is', flabadab, 'years old')
 
 *   Use meaningful variable names to help other people understand what the program does.
 *   The most important "other person" is your future self.
+
+## Use comments to add documentation to programs.
+
+~~~
+# This sentence isn't executed by Python.
+adjustment = 0.5   # Neither is this - anything after '#' is ignored.
+print(adjustments)
+~~~
+{: .python}
+
+
+~~~
+0.5
+~~~
+{: .output}
 
 > ## Swapping Values
 >
@@ -208,27 +194,6 @@ print(ewr_422_yY, 'is', flabadab, 'years old')
 > {: .python}
 {: .challenge}
 
-> ## Challenge
->
-> If you assign `a = 123`,
-> what happens if you try to get the second digit of `a`?
->
-> > ## Solution
-> > Numbers are not stored in the written representation,
-> > so they can't be treated like strings.
-> >
-> > ~~~
-> > a = 123
-> > print(a[1])
-> > ~~~
-> > {: .python}
-> > ~~~
-> > TypeError: 'int' object is not subscriptable
-> > ~~~
-> > {: .error}
-> {: .solution}
-{: .challenge}
-
 > ## Choosing a Name
 >
 > Which is a better variable name, `m`, `min`, or `minutes`?
@@ -247,22 +212,12 @@ print(ewr_422_yY, 'is', flabadab, 'years old')
 > {: .solution}
 {: .challenge}
 
-> ## Slicing
+> ## What Did You Have For Dinner Last Night?
 >
-> What does the following program print?
+> In a new notebook cell create variables that contain relevant data 
+> regarding the "what, where, and when" of last night's dinner, then
+> include those variables in a `print()` command as part of a full sentence.
 >
-> ~~~
-> element = 'carbon'
-> print('element[1:3] is:', element[1:3])
-> ~~~
-> {: .python}
-> ~~~
-> element[1:3] is: ar
-> ~~~
-> {: .output}
->
-> 1.  What does `thing[low:high]` do?
-> 2.  What does `thing[low:]` (without a value after the colon) do?
-> 3.  What does `thing[:high]` (without a value before the colon) do?
-> 4.  What does `thing[:]` (just a colon) do?
+> Paste the output into the EitherPad, so we can all vicariously
+> enjoy your meal.
 {: .challenge}
