@@ -1,5 +1,4 @@
 ---
-start: true
 title: "Variables and Assignment"
 teaching: 15
 exercises: 10

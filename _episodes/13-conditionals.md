@@ -1,5 +1,4 @@
 ---
-start: true
 title: "Conditionals"
 teaching: 10
 exercises: 15
