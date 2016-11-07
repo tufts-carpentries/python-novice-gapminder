@@ -341,3 +341,101 @@ final velocity: 30.0
 > > {: .python}
 > {: .solution}
 {: .challenge}
+
+
+> ## Bring it all together by processing a FASTA file
+>
+> The FASTA format specification consists of a header, prefixed with a 
+> greater-than symbol (&gt;), that contains the sequence IDs and 
+> space-separated metadata, followed by the sequence data on one or more
+> subsequent lines.
+>
+> Use nano to open up the FASTA file in the 'sequences' directory.
+>
+> ~~~
+> $: nano swc-data/sequences/pannexins.fa
+> ~~~
+> {: .bash}
+>
+> ~~~
+>  GNU nano 2.2.6          File: swc-data/sequence/pannexins.fa
+> 
+> >Dme-Panx1 FBgn0004646 dmInx1.
+> MYKLLGSLKSYLKWQDIQTDNAVFRLHNSFTTVLLLTCSLIITATQYVGQPISCIVNGVP
+> PHVVNTFCWIHSTFTMPDAFRRQVGREVAHPGVANDFGDEDAKKYYTYYQWVCFVLFFQA
+> MACYTPKFLWNKFEGGLMRMIVMGLNITICTREEKEAKRDALLDYLIKHVKRHKLYAIRY
+> WACEFLCCINIIVQMYLMNRFFDGEFLSYGTNIMKLSDVPQEQRVDPMVYVFPRVTKCTF
+> HKYGPSGSLQKHDSLCILPLNIVNEKTYVFIWFWFWILLVLLIGLIVFRGCIIFMPKFRP
+> RLLNASNRMIPMEICRSLSRKLDIGDWWLIYMLGRNLDPVIYKDVMSEFAKQVEPSKHDR
+> AK
+> >Dme-Panx2 FBgn0027108 dmInx2.
+> MFDVFGSVKGLLKIDQVCIDNNVFRMHYKATVIILIAFSLLVTSRQYIGDPIDCIVDEIP
+> LGVMDTYCWIYSTFTVPERLTGITGRDVVQPGVGSHVEGEDEVKYHKYYQWVCFVLFFQA
+> ILFYVPRYLWKSWEGGRLKMLVMDLNSPIVNDECKNDRKKILVDYFIGNLNRHNFYAFRF
+> FVCEALNFVNVIGQIYFVDFFLDGEFSTYGSDVLKFTELEPDERIDPMARVFPKVTKCTF
+> HKYGPSGSVQTHDGLCVLPLNIVNEKIYVFLWFWFIILSIMSGISLIYRIAVVAGPKLRH
+> 
+> ^G Get Help    ^O WriteOut    ^R Read File   ^Y Prev Page   ^K Cut Text    ^C Cur Pos
+> ^X Exit        ^J Justify     ^W Where Is    ^V Next Page   ^U UnCut Text  ^T To Spell
+> ~~~
+> {: .txt}
+>
+> <br />
+> For the following exercise write a program that will print only the
+> IDs from the Drosophila melanogaster (Dme) sequences, like this:
+>
+> ~~~
+> Dme-Panx1
+> Dme-Panx2
+> Dme-Panx3
+> Dme-Panx4
+> Dme-Panx5
+> Dme-Panx6
+> Dme-Panx7
+> Dme-Panx8
+> ~~~
+> {: .txt}
+>
+> <br />
+> To read the file into your program, use the following code snippet:
+>
+> ~~~
+> with open("pannexins.fa", "r") as ifile:
+>    lines = ifile.readlines()
+> ~~~
+> {: .python}
+>
+> <br />
+> The 'readlines()' function will create a new list and then append 
+> each line in the file to that list.
+>
+> NOTE: This is *NOT* the recommended solution for very large
+> files, because readlines() stores everything in the file in memory.
+> 
+> > ## Solution
+> > 
+> > ~~~
+> > # Read the file into a list
+> > with open("pannexins.fa", "r") as ifile:
+> >     lines = ifile.readlines()
+> > 
+> > # Loop over every line, searching for the header lines
+> > for line in lines:
+> >     # Confirm that the line is a header, not sequence
+> >     if line[0] == ">":
+> >         # 'split' the string into a list on the space (" ") character
+> >         line_split = line.split(" ")
+> > 
+> >         # The sequence ID is the first index of the header list
+> >         seq_id = line_split[0]
+> > 
+> >         # Remove the leading > symbol from the ID
+> >         seq_id = seq_id[1:]
+> > 
+> >         # Test if the first three characters of the ID are "Dme"
+> >         if seq_id[:3] == "Dme":
+> >             print(seq_id)
+> > ~~~
+> > {: .python}
+> {: .solution}
+{: .challenge}
