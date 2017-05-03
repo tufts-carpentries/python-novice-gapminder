@@ -9,7 +9,7 @@ objectives:
 - "Write programs that create flat lists, index them, slice them, and modify them through assignment and method calls."
 keypoints:
 - "A list stores many values in a single structure."
-- "Use an item's index to fetch it from a list."
+- "Use an item's index to query it from a list."
 - "Lists' values can be replaced by assigning to them."
 - "Appending items to a list lengthens it."
 - "Use `del` to remove items from a list entirely."
@@ -40,14 +40,14 @@ length: 5
 ~~~
 {: .output}
 
-## Use an item's index to fetch it from a list.
+## Use an item's index to query it from a list.
 
 *   Items in a list are assigned an 'index' value to represent their relative order 
 *   __GotCha__: The index starts at the value __0__, not __1__, so be careful about [off-by-one](https://en.wikipedia.org/wiki/Off-by-one_error) bugs in your code
 
 ~~~
-print('zeroth item of pressures:', pressures[0])
-print('fourth item of pressures:', pressures[4])
+print('First item of pressures is zeroth index:', pressures[0])
+print('Fourth index is fifth item of pressures:', pressures[4]) 
 ~~~
 {: .python}
 ~~~
@@ -72,7 +72,19 @@ pressures is now: [0.265, 0.275, 0.277, 0.275, 0.276]
 
 ## Appending items to a list lengthens it.
 
-*   Use `list_name.append` to add items to the end of a list.
+*   Trying to assign to an index that doesn't exist will return an error 
+
+~~~
+print('99th element of element is:', element[99])
+~~~
+{: .python}
+~~~
+IndexError: string index out of range
+~~~
+{: .output}
+
+
+*   Use `list_name.append` to add items to the end of a list (i.e., beyond currently assigned indices)
 
 ~~~
 primes = [2, 3, 5]
@@ -162,22 +174,6 @@ TypeError: 'str' object does not support item assignment
 {: .error}
 
 *   Lists and character strings are both *collections*.
-
-## Indexing beyond the end of the collection is an error.
-
-*   Python reports an `IndexError` if we attempt to access a value that doesn't exist.
-    *   This is a kind of runtime error.
-    *   Cannot be detected as the code is parsed
-        because the index might be calculated based on data.
-
-~~~
-print('99th element of element is:', element[99])
-~~~
-{: .python}
-~~~
-IndexError: string index out of range
-~~~
-{: .output}
 
 > ## Fill in the Blanks
 >
