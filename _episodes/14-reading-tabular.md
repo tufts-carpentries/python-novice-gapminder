@@ -234,13 +234,17 @@ max      23424.766830    26997.936570    30687.754730    34435.367440
 >
 > > ## Solution
 > > 
+> > To read in a CSV, we use `pandas.read_csv` and pass the filename 'data/gapminder_gdp_americas.csv' to it. We also once again pass the
+> > column name 'country' to the parameter `index_col` in order to index by country:
+> >
 > > ~~~
-> > americas = pandas.read_csv('gapminder/gapminder_gdp_americas.csv')
+> > americas = pandas.read_csv('gapminder/gapminder_gdp_americas.csv', index_col='country')
 > > print(americas.describe())
 > > ~~~
 > > {: .python}
 > {: .solution}
 {: .challenge}
+
 
 > ## Inspecting Data.
 >
@@ -259,15 +263,82 @@ max      23424.766830    26997.936570    30687.754730    34435.367440
 > {: .solution}
 >
 > > ## Solution
+> > To get the first three rows of data, use the `head` method to view the top of the DataFrame.
+> > Specify the number of rows shown by passing in the parameter `n` to the method call.
 > >
 > > ~~~
-> > # To get the first three rows of data, use `head`
-> > print(americas.head(3))
+> > print(americas.head(n=3))
+> > ~~~
+> > {: .python}
+> >
+> > The output is then
+> > ~~~
+> >          continent  gdpPercap_1952  gdpPercap_1957  gdpPercap_1962  \
+> >country                                                               
+> >Argentina  Americas     5911.315053     6856.856212     7133.166023   
+> >Bolivia    Americas     2677.326347     2127.686326     2180.972546   
+> >Brazil     Americas     2108.944355     2487.365989     3336.585802   
+> >
+> >           gdpPercap_1967  gdpPercap_1972  gdpPercap_1977  gdpPercap_1982  \
+> >country                                                                     
+> >Argentina     8052.953021     9443.038526    10079.026740     8997.897412   
+> >Bolivia       2586.886053     2980.331339     3548.097832     3156.510452   
+> >Brazil        3429.864357     4985.711467     6660.118654     7030.835878   
+> >
+> >           gdpPercap_1987  gdpPercap_1992  gdpPercap_1997  gdpPercap_2002  \
+> >country                                                                     
+> >Argentina     9139.671389     9308.418710    10967.281950     8797.640716   
+> >Bolivia       2753.691490     2961.699694     3326.143191     3413.262690   
+> >Brazil        7807.095818     6950.283021     7957.980824     8131.212843   
+> >
+> >           gdpPercap_2007  
+> >country                    
+> >Argentina    12779.379640  
+> >Bolivia       3822.137084  
+> >Brazil        9065.800825 
+> > ~~~ 
+> >{: .output}
+> > 2. To check out the last three rows of `americas`, we would use the command, `americas.tail(n=3)`,
+> > analogous to `head()` used above. However, here we want to look at the last three columns so we need
+> > to change our view and then use `tail()`. To do so, we create a new new DataFrame in which rows and 
+> > columns are switched
 > > 
-> > # To get the last three columns of data, you first need to transpose 
-> > # the dataframe, and then use `tail`
-> > americas = americas.T
-> > print(americas.tail(3))
+> > ~~~
+> > americas_flipped = americas.T
+> > ~~~
+> >{: .python}
+> >
+> > We can then view the last three columns of `americas` by viewing the last three rows of `americas_flipped`:
+> > ~~~
+> > americas_flipped.tail(n=3)
+> > ~~~
+> >{: .python}
+> > The output is then
+> > ~~~
+> > country        Argentina  Bolivia   Brazil   Canada    Chile Colombia  \
+> > gdpPercap_1997   10967.3  3326.14  7957.98  28954.9  10118.1  6117.36   
+> > gdpPercap_2002   8797.64  3413.26  8131.21    33329  10778.8  5755.26   
+> > gdpPercap_2007   12779.4  3822.14   9065.8  36319.2  13171.6  7006.58   
+> > 
+> > country        Costa Rica     Cuba Dominican Republic  Ecuador    ...     \
+> > gdpPercap_1997    6677.05  5431.99             3614.1  7429.46    ...      
+> > gdpPercap_2002    7723.45  6340.65            4563.81  5773.04    ...      
+> > gdpPercap_2007    9645.06   8948.1            6025.37  6873.26    ...      
+> > 
+> > country          Mexico Nicaragua   Panama Paraguay     Peru Puerto Rico  \
+> > gdpPercap_1997   9767.3   2253.02  7113.69   4247.4  5838.35     16999.4   
+> > gdpPercap_2002  10742.4   2474.55  7356.03  3783.67  5909.02     18855.6   
+> > gdpPercap_2007  11977.6   2749.32  9809.19  4172.84  7408.91     19328.7   
+> > 
+> > country        Trinidad and Tobago United States  Uruguay Venezuela  
+> > gdpPercap_1997             8792.57       35767.4  9230.24   10165.5  
+> > gdpPercap_2002             11460.6       39097.1     7727   8605.05  
+> > gdpPercap_2007             18008.5       42951.7  10611.5   11415.8  
+> > ~~~ 
+> >{: .output}
+> > Note: we could have done the above in a single line of code by 'chaining' the commands:
+> > ~~~
+> > americas.T.tail(n=3)
 > > ~~~
 > > {: .python}
 > {: .solution}
@@ -297,10 +368,12 @@ max      23424.766830    26997.936570    30687.754730    34435.367440
 > {: .solution}
 >
 > > ## Solution
+> > We need to specify the path to the file of interest in the call to `pandas.read_csv`. We first 
+> > need to 'jump' out of the folder `thesis` using '../' and then into the folder `field_data` using 
+> > 'field_data/'. Then we can specify the filename `microbes.csv.
 > >
 > > ~~~
-> > # Use '..' to construct a relative path
-> > microbes_df = pandas.read_csv('../field_data/microbes.csv')
+ > microbes_df = pandas.read_csv('../field_data/microbes.csv')
 > > ~~~
 > > {: .python}
 > {: .solution}
@@ -310,12 +383,8 @@ max      23424.766830    26997.936570    30687.754730    34435.367440
 > 
 > As well as the '`read_csv`' function for reading data from a file,
 > Pandas provides a '`to_csv`' function to write dataframes to files.
-> Write a dataframe to a file called '`processed.csv`'.
->
-> > ## Hint
-> > 
-> > Try using the `help` function to get information about `to_csv`
-> {: .solution}
+> Applying what you've learned about reading from files,
+> write one of your dataframes to a file called `processed.csv`.
 >
 > > ## Solution
 > >
@@ -323,5 +392,15 @@ max      23424.766830    26997.936570    30687.754730    34435.367440
 > > americas.to_csv('processed.csv')
 > > ~~~
 > > {: .python}
+> >
+> > For help on `to_csv`, you could execute, for example,
+> > ~~~
+> > help(americas.to_csv)
+> > ~~~
+> >{: .python}
+> >
+> > Note that `help(to_csv)` throws an error! This is a subtlety and is due to the fact that `to_csv` 
+> > is NOT a function in and of itself, but is a method of `americas`. 
+> > 
 > {: .solution}
 {: .challenge}
