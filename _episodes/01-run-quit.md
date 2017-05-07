@@ -34,13 +34,14 @@ keypoints:
 
 *   The [Anaconda package manager][anaconda] is an automated way to install the Jupyter notebook.
     *   See [the setup instructions]({{ page.root }}/setup/) for Anaconda installation instructions.
-*   It also installs all the extra libraries it needs to run.
-*   Once you have installed Python and the Jupyter Notebook requirements, open a shell and type:
+*   Jupyter is dependent on a number of other Python programs, all of which should have been installed for you automatically
+*   Once you have installed Python, the Jupyter Notebook requirements, and the Software Carpentry data folder, open a shell and type:
 
     ~~~
+    $ cd ~/Desktop/swc-data/jupyter_notebooks
     $ jupyter notebook
     ~~~
-    {: .python}
+    {: .bash}
 
 *   This will start a Jupyter Notebook server and open your default web browser. 
 *   The server runs locally on your machine only and does not use an internet connection.
@@ -96,7 +97,7 @@ keypoints:
 *   When in control mode (esc/gray),
     *   The "B" key will make a new cell below the currently selected cell.
     *   The "A" key will make one above.
-    *   The "X" key will delete the current cell.
+    *   The "X" key will 'cut' the current cell, which you can "V" to paste elsewhere
 *   All actions can be done using the menus,
     but there are lots of keyboard shortcuts to speed things up.
 *   If you remember the "esc" and "H" shortcut, you will be able to find out all the rest.
@@ -110,7 +111,7 @@ keypoints:
 >
 > > ## Solution
 > >
-> > Control mode has a grey boarder and Edit mode has a green border
+> > Control mode has a grey or blue boarder and Edit mode has a green border
 > > Use "esc" and "Enter" to switch between modes
 > > You need to be in control mode (Hit "esc" if your cell is green).  Type "B" or "A".
 > > You need to be in control mode (Hit "esc" if your cell is green).  Type "X".
