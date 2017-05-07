@@ -10,80 +10,68 @@ objectives:
 - "Select a subset of both rows and columns from a dataframe in a single operation."
 - "Select a subset of a dataframe by a single Boolean criterion."
 keypoints:
-- "Use `DataFrame.ix[..., ...]` to select values by location."
+- "Use `DataFrame.loc[..., ...]` and `DataFrame.iloc[..., ...]` to select values by location (name or index, respectively)."
 - "Use `:` on its own to mean all columns or all rows."
-- "Select multiple columns or rows using `DataFrame.ix` and a named slice."
 - "Result of slicing can be used in further operations."
 - "Use comparisons to select data based on value."
 - "Select values or NaN using a Boolean mask."
 ---
-## Use `DataFrame.ix[..., ...]` to select values by location.
 
-*   Can specify location by name or by numerical index.
+## Use `DataFrame.loc[columns, rows]` to select values by location using column and row names.
+
+*   Note that `.loc` is followed by square brackets `[]`, not parentheses `()`.
 
 ~~~
 data = pandas.read_csv('data/gapminder_gdp_europe.csv', index_col='country')
-print(data.ix["Albania", "gdpPercap_1952"])
-print(data.ix[0, 0])
+print(data.loc["Albania", "gdpPercap_1952"])
 ~~~
 {: .python}
 ~~~
 1601.056136
-1601.056136
 ~~~
 {: .output}
 
-## Use `:` on its own to mean all columns or all rows.
-
-*   Just like Python's usual slicing notation.
+*   Use the `:` notation to slice columns and/or rows (just like lists)
 
 ~~~
-print(data.ix["Albania", :])
-~~~
-{: .python}
-~~~
-gdpPercap_1952    1601.056136
-gdpPercap_1957    1942.284244
-gdpPercap_1962    2312.888958
-gdpPercap_1967    2760.196931
-gdpPercap_1972    3313.422188
-gdpPercap_1977    3533.003910
-gdpPercap_1982    3630.880722
-gdpPercap_1987    3738.932735
-gdpPercap_1992    2497.437901
-gdpPercap_1997    3193.054604
-gdpPercap_2002    4604.211737
-gdpPercap_2007    5937.029526
-Name: Albania, dtype: float64
-~~~
-{: .output}
-
-*   Would get the same result printing `data.ix["Albania"]` (without a second index).
-
-~~~
-print(data.ix[:, "gdpPercap_1952"])
+print(data.loc["Albania":"Germany", "gdpPercap_1952"])
 ~~~
 {: .python}
 ~~~
 country
-Albania                    1601.056136
-Austria                    6137.076492
-Belgium                    8343.105127
-⋮ ⋮ ⋮
-Switzerland               14734.232750
-Turkey                     1969.100980
-United Kingdom             9979.508487
+Albania                   1601.056136
+Austria                   6137.076492
+Belgium                   8343.105127
+Bosnia and Herzegovina     973.533195
+Bulgaria                  2444.286648
+Croatia                   3119.236520
+Czech Republic            6876.140250
+Denmark                   9692.385245
+Finland                   6424.519071
+France                    7029.809327
+Germany                   7144.114393
 Name: gdpPercap_1952, dtype: float64
 ~~~
 {: .output}
 
-*   Would get the same result printing `data["gdpPercap_1952"]`
-*   Also get the same result printing `data.gdpPercap_1952` (since it's a column name)
+~~~
+print(data.loc["Albania":"Belgium", "gdpPercap_1952":"gdpPercap_1967"])
+~~~
+{: .python}
+~~~
+         gdpPercap_1952  gdpPercap_1957  gdpPercap_1962  gdpPercap_1967
+country
+Albania     1601.056136     1942.284244     2312.888958     2760.196931
+Austria     6137.076492     8842.598030    10750.721110    12834.602400
+Belgium     8343.105127     9714.960623    10991.206760    13149.041190
+~~~
+{: .output}
 
-## Select multiple columns or rows using `DataFrame.ix` and a named slice.
+
+## Use `DataFrame.iloc[columns, rows]` to select values by numerical indices.
 
 ~~~
-print(data.ix['Italy':'Poland', 'gdpPercap_1962':'gdpPercap_1972'])
+print(data.iloc[15:20, 2:5])
 ~~~
 {: .python}
 ~~~
@@ -97,11 +85,83 @@ Poland          5338.752143     6557.152776     8006.506993
 ~~~
 {: .output}
 
-In the above code, we discover that **slicing using indexes is inclusive at both
-ends**, which differs from typical python behavior, where slicing indicates
-everything up to but not including the final index.  However, if we use integers
-when our DataFrame is indexed by something else, slicing follows typical
-pythonic behavior.
+Note that the second index is NOT inclusive when using `.iloc`. So
+`[1:3]` will only return values at index 1 and 2 (typical python
+behavior). However, when using `.loc`, **the slicing is inclusive at
+both ends**.
+
+## Two ways to access specific columns directly, without `.loc`
+
+*   Pass in a column name as a string between square brackets `[]`
+
+~~~
+print(data["gdpPercap_1952"])
+~~~
+{: .python}
+~~~
+country
+Albania                    1601.056136
+Austria                    6137.076492
+Belgium                    8343.105127
+Bosnia and Herzegovina      973.533195
+...
+Spain                      3834.034742
+Sweden                     8527.844662
+Switzerland               14734.232750
+Turkey                     1969.100980
+United Kingdom             9979.508487
+Name: gdpPercap_1952, dtype: float64
+~~~
+{: .output}
+
+*   To retrieve multiple columns in this way, provide the names in a list
+
+~~~
+print(data[["gdpPercap_1952", "gdpPercap_1972"]])
+~~~
+{: .python}
+~~~
+                        gdpPercap_1952  gdpPercap_1972
+country
+Albania                    1601.056136     3313.422188
+Austria                    6137.076492    16661.625600
+Belgium                    8343.105127    16672.143560
+Bosnia and Herzegovina      973.533195     2860.169750
+...
+Spain                      3834.034742    10638.751310
+Sweden                     8527.844662    17832.024640
+Switzerland               14734.232750    27195.113040
+Turkey                     1969.100980     3450.696380
+United Kingdom             9979.508487    15895.116410
+~~~
+{: .output}
+
+*   Attach the column name directy with a `.`
+
+~~~
+print(data.gdpPercap_1952)
+~~~
+{: .python}
+~~~
+country
+Albania                    1601.056136
+Austria                    6137.076492
+Belgium                    8343.105127
+Bosnia and Herzegovina      973.533195
+...
+Spain                      3834.034742
+Sweden                     8527.844662
+Switzerland               14734.232750
+Turkey                     1969.100980
+United Kingdom             9979.508487
+Name: gdpPercap_1952, dtype: float64
+~~~
+{: .output}
+
+**Keep in mind that the syntax presented in this section represent
+shortcuts, which can lead to confusion when first starting out. You
+should stick to `.loc` and `.iloc` until you are comfortable
+with pandas**
 
 ## Result of slicing can be used in further operations.
 
@@ -111,7 +171,7 @@ pythonic behavior.
 *   E.g., calculate max of a slice.
 
 ~~~
-print(data.ix['Italy':'Poland', 'gdpPercap_1962':'gdpPercap_1972'].max())
+print(data.loc['Italy':'Poland', 'gdpPercap_1962':'gdpPercap_1972'].max())
 ~~~
 {: .python}
 ~~~
@@ -123,7 +183,7 @@ dtype: float64
 {: .output}
 
 ~~~
-print(data.ix['Italy':'Poland', 'gdpPercap_1962':'gdpPercap_1972'].min())
+print(data.loc['Italy':'Poland', 'gdpPercap_1962':'gdpPercap_1972'].min())
 ~~~
 {: .python}
 ~~~
@@ -141,7 +201,7 @@ dtype: float64
 
 ~~~
 # Use a subset of data to keep output readable.
-subset = data.ix['Italy':'Poland', 'gdpPercap_1962':'gdpPercap_1972']
+subset = data.loc['Italy':'Poland', 'gdpPercap_1962':'gdpPercap_1972']
 print('Subset of data:\n', subset)
 
 # Which values were greater than 10000 ?
@@ -222,14 +282,14 @@ max      13450.401510    16361.876470    18965.055510
 >
 > > ## Hint
 > > 
-> > Try using the '`ix`' method
+> > Try using the '`loc`' method
 > {: .solution}
 >
 > > ## Solution
 > >
 > > ~~~
 > > # You can specify a particular peice of data by referencing its coordinate headings
-> > print(europe_df.ix["Serbia", "gdpPercap_2007"])
+> > print(europe_df.loc["Serbia", "gdpPercap_2007"])
 > > ~~~
 > > {: .python}
 > {: .solution}
@@ -242,8 +302,8 @@ max      13450.401510    16361.876470    18965.055510
 >     what rule governs what is included (or not) in numerical slices and named slices in Pandas?
 >
 > ~~~
-> print(data.ix[0:2, 0:2])
-> print(data.ix['Albania':'Belgium', 'gdpPercap_1952':'gdpPercap_1962'])
+> print(data.iloc[0:2, 0:2])
+> print(data.loc['Albania':'Belgium', 'gdpPercap_1952':'gdpPercap_1962'])
 > ~~~
 > {: .python}
 >
@@ -343,32 +403,33 @@ max      13450.401510    16361.876470    18965.055510
 > 1.  GDP per capita for all countries in 1982.
 > 1.  GDP per capita for Denmark for all years.
 > 1.  GDP per capita for all countries for years *after* 1985.
-> 1.  GDP per capita for each country in 2007 as a multiple of GDP per capita for that country in 1952.
+> 1.  Inflation of GDP per capita for each country between 2007 and 1952 (i.e., 2007 divided by 1952).
 >
 > > ## Hint
 > > 
-> > Everything can be done with the '`ix`' method
+> > Everything can be done with the '`loc`' method
 > {: .solution}
 >
 > > ## Solution
 > >
 > > ~~~
 > > # GDP per capita for all countries in 1982.
-> > europe_df.ix[:, "gdpPercap_1982"]
+> > europe_df.loc[:, "gdpPercap_1982"]
 > >
 > > # GDP per capita for Denmark for all years.
-> > europe_df.ix["Denmark", :]
+> > europe_df.loc["Denmark", :]
 > > 
 > > # GDP per capita for all countries for years *after* 1985.
-> > europe_df.ix[:, "gdpPercap_1985":]
+> > europe_df.loc[:, "gdpPercap_1985":]
 > >
 > > # GDP per capita for each country in 2007 as a multiple of GDP per capita for that country in 1952.
-> > europe_df.ix[:, "gdpPercap_2007"] * europe_df.ix[:, "gdpPercap_1952"]
+> > europe_df.loc[:, "gdpPercap_2007"] / europe_df.loc[:, "gdpPercap_1952"]
 > > ~~~
 > > {: .python}
 > {: .solution}
 {: .challenge}
 
+<!--
 > ## Processing Small Files
 >
 > Modify this program so that it only processes files with fewer than 50 records.
@@ -392,7 +453,7 @@ max      13450.401510    16361.876470    18965.055510
 > for the entire Twentieth Century?
 {: .challenge}
 
-<!--
+
 > ## 'Applying' a function to a Pandas DataFrame
 >
 > Consider the following:
