@@ -107,8 +107,9 @@ primes has become: [2, 3, 5, 7, 9]
 *   We will meet other methods of lists as we go along.
     *   Use `help(list)` for a preview.
 *   `extend` is similar to `append`, but it allows you to combine two lists.  For example:
+
+
 ~~~
-{: .python}
 teen_primes = [11, 13, 17, 19]
 middle_aged_primes = [37, 41, 43, 47]
 print('primes is currently:', primes)
@@ -118,11 +119,14 @@ primes.append(middle_aged_primes)
 print('primes has finally become:', primes)
 ~~~
 {: .python}
+
+~~~
 primes is currently: [2, 3, 5, 7, 9]
 primes has now become: [2, 3, 5, 7, 9, 11, 13, 17, 19]
 primes has finally become: [2, 3, 5, 7, 9, 11, 13, 17, 19, [37, 41, 43, 47]]
 ~~~
 {: .output}
+
 Note that while `extend` maintains the "flat" structure of the list, appending a list to a list makes the result two-dimensional.
 
 ## Use `del` to remove items from a list entirely.
@@ -136,6 +140,7 @@ del primes[4]
 print('primes after removing last item:', primes)
 ~~~
 {: .python}
+
 ~~~
 primes before removing last item: [2, 3, 5, 7, 9]
 primes after removing last item: [2, 3, 5, 7]
@@ -191,7 +196,65 @@ TypeError: 'str' object does not support item assignment
 ~~~
 {: .error}
 
-*   Lists and character strings are both *collections*.
+## Ranges of indices can be specified using the `:` character (Called 'slicing')
+
+To retrieve multiple points in a list, specify the start index and the
+end index plus one
+
+~~~
+primes = [2, 3, 5, 7, 9, 11, 13, 17, 19]
+print(primes[2:5])
+~~~
+{: .python}
+
+~~~
+[5, 7, 9]
+~~~
+{: .output}
+
+If you want to get all of the items from the beginning of the list until
+some index, leave the left side of the colon blank
+
+~~~
+primes = [2, 3, 5, 7, 9, 11, 13, 17, 19]
+print(primes[:5])
+~~~
+{: .python}
+
+~~~
+[2, 3, 5, 7, 9]
+~~~
+{: .output}
+
+Similarly, leaving the right side blank will return all items until the
+end of the list
+
+~~~
+primes = [2, 3, 5, 7, 9, 11, 13, 17, 19]
+print(primes[5:])
+~~~
+{: .python}
+
+~~~
+[11, 13, 17, 19]
+~~~
+{: .output}
+
+Or get really fancy by specifying a 'stride' parameter, which allows you
+to jump items.
+
+~~~
+primes = [2, 3, 5, 7, 9, 11, 13, 17, 19]
+
+# Only take every other item in the slice
+print(primes[1:6:2])
+~~~
+{: .python}
+
+~~~
+[3, 7, 11]
+~~~
+{: .output}
 
 > ## Fill in the Blanks
 >
