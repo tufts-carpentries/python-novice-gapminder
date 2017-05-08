@@ -269,7 +269,7 @@ max      13450.401510    16361.876470    18965.055510
 ~~~
 {: .output}
 
-> ## Selection of Individual Values
+> ## Selection of Specific Rows
 >
 > Load the Gapminder GDP data for Europe into a dataframe:
 >
@@ -277,6 +277,29 @@ max      13450.401510    16361.876470    18965.055510
 > europe_df = pandas.read_csv('data/gapminder_gdp_europe.csv', index_col='country')
 > ~~~
 > {: .python}
+>
+> Display only the first and third rows of the data frame.
+>
+> > ## Hint
+> > 
+> > You can use a list with '`iloc`' to select multiple, specific rows. Remember that python uses zero-based indexes,
+> > so rows 1 and 3 actually have indexes 0 and 2.
+> {: .solution}
+>
+> > ## Solution
+> >
+> > ~~~
+> > # You can specify rows by their indices using a list.
+> > print(europe_df.iloc[[0, 2], :])
+> > 
+> > # Note that the following is equivalent:
+> > print(europe_df.iloc[[0, 2]])
+> > ~~~
+> > {: .python}
+> {: .solution}
+{: .challenge}
+
+> ## Selection of Individual Values
 >
 > Write an expression to find the Per Capita GDP of Serbia in 2007.
 >
@@ -424,6 +447,26 @@ max      13450.401510    16361.876470    18965.055510
 > >
 > > # GDP per capita for each country in 2007 as a multiple of GDP per capita for that country in 1952.
 > > europe_df.loc[:, "gdpPercap_2007"] / europe_df.loc[:, "gdpPercap_1952"]
+> > ~~~
+> > {: .python}
+> {: .solution}
+{: .challenge}
+
+> ## Changing Values in a Data Frame
+>
+> You can select values to change using the same indexing strategies as for displaying values.
+> Change the 1982 per-capita GDP of Denmark to a new value.
+>
+> > ## Hint
+> > 
+> > Try selecting the value using '`.loc`' and then setting a new value using '`=`'.
+> {: .solution}
+>
+> > ## Solution
+> >
+> > ~~~
+> > # Any indexing command can be combined with '`=`' to change the value(s).
+> > europe_df.loc['Denmark','gdpPercap_1982'] = 450000000
 > > ~~~
 > > {: .python}
 > {: .solution}
