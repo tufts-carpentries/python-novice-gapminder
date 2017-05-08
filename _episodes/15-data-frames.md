@@ -465,7 +465,7 @@ max      13450.401510    16361.876470    18965.055510
 > > ## Solution
 > >
 > > ~~~
-> > # Any indexing command can be combined with '`=`' to change the value(s).
+> > # Any indexing command can be combined with '=' to change the value(s).
 > > europe_df.loc['Denmark','gdpPercap_1982'] = 450000000
 > > ~~~
 > > {: .python}
