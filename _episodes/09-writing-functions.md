@@ -140,27 +140,27 @@ The result of the call to greeting is: None
 >
 > ~~~
 > def report(pressure):
->     print('pressure is', pressure)
+>     print('The pressure is', pressure)
 >
-> print('calling', report, 22.5)
+> report(22.5)
 > ~~~
 > {: .python}
 {: .challenge}
 
 > ## Order of Operations
 >
-> The example above:
+> The following code is written given the function in the previous example
 >
 > ~~~
-> result = print_date(1871, 3, 19)
+> result = report(22.5)
 > print('result of call is:', result)
 > ~~~
 > {: .python}
 >
-> printed:
+> The output is:
 >
 > ~~~
-> 1871/3/19
+> The pressure is 22.5
 > result of call is: None
 > ~~~
 > {: .output}
@@ -170,33 +170,34 @@ The result of the call to greeting is: None
 
 > ## Encapsulation
 >
-> Fill in the blanks to create a function that takes a single filename as an argument,
-> loads the data in the file named by the argument,
-> and returns the minimum value in that data.
+> Fill in the blanks to create a function that calculates the area
+> of a circle
 >
 > ~~~
-> import pandas
+> import math
 >
-> def min_in_data(____):
->     data = ____
+> def area_of_circ(____):
+>     area = math.______ * _____ ** 2
 >     return ____
 > ~~~
 > {: .python}
-{: .challenge}
-
-> ## Find the First
 >
-> Fill in the blanks to create a function that takes a list of numbers as an argument
-> and returns the first negative value in the list.
-> What does your function do if the list is empty?
+> > ## Hint
+> >
+> > The formula for area is pi * radius ^ 2
+> {: .solution}
 >
-> ~~~
-> def first_negative(values):
->     for v in ____:
->         if ____:
->             return ____
-> ~~~
-> {: .python}
+> > ## Solution
+> >
+> > ~~~
+> > import math
+> >
+> > def area_of_circ(radius):
+> >     area = math.pi * radius ** 2
+> >     return area
+> > ~~~
+> > {: python}
+> {: .solution}
 {: .challenge}
 
 > ## Calling by Name
@@ -212,141 +213,29 @@ The result of the call to greeting is: None
 > ~~~
 > {: .python}
 >
-> 1.  When have you seen a function call like this before?
+> 1.  Why do you think it's okay to call the arguments in a different order like this?
 > 2.  When and why is it useful to call functions this way?
 {: .challenge}
 
-> ## Encapsulate of If/Print Block
+> ## Encapsulating a for-loop
 >
-> The code below will run on a label-printer for chicken eggs.  A digital scale will report a chicken egg mass (in grams) to the computer and then the computer will print a label.  
->
-> Please re-write the code so that the if-block is folded into a function.
->
-> ~~~
->  import random
->  for i in range(10):
->
->     # simulating the mass of a chicken egg
->     # the (random) mass will be 70 +/- 20 grams
->     mass=70+20.0*(2.0*random.random()-1.0)
->
->     print(mass)
->    
->     #egg sizing machinery prints a label
->     if(mass>=85):
->        print("jumbo")
->     elif(mass>=70):
->        print("large")
->     elif(mass<70 and mass>=55):
->        print("medium")
->     else:
->        print("small")
-> ~~~
-> {: .python}
->
->
-> The simplified program  follows.  What function definition will make it functional?
->
-> ~~~
->  # revised version
->  import random
->  for i in range(10):
->
->     # simulating the mass of a chicken egg
->     # the (random) mass will be 70 +/- 20 grams
->     mass=70+20.0*(2.0*random.random()-1.0)
->
->     print(mass,print_egg_label(mass))    
->
-> ~~~
-> {: .python}
->
->
-> 1. Create a function definition for `print_egg_label()` that will work with the revised program above.  Note, the function's return value will be signifigant. Sample output might be `71.23 large`.
-> 2.  A dirty egg might have a mass of more than 90 grams, and a spoiled or broken egg will probably have a mass that's less than 50 grams.  Modify your `print_egg_label()` function to account for these error conditions. Sample output could be `25 too light, probably spoiled`.
-> 
-{: .challenge}
-
-> ## Encapsulating Data Analysis
->
-> Assume that the following code has been executed:
->
-> ~~~ 
-> import pandas
->
-> df = pandas.read_csv('gapminder_gdp_asia.csv', index_col=0)
-> japan = df.ix['Japan']
-> ~~~
-> {: .python}
->
-> 1. Complete the statements below to obtain the average GDP for Japan
->    across the years reported for the 1980s.
->
-> ~~~ 
-> year = 1983
-> gdp_decade = 'gdpPercap_' + str(year // ____)
-> avg = (japan.ix[gdp_decade + ___] + japan.ix[gdp_decade + ___]) / 2
-> ~~~
-> {: .python}
->
-> 2. Abstract the code above into a single function.
->
-> ~~~
-> def avg_gdp_in_decade(country, continent, year):
->     df = pd.read_csv('gapminder_gdp_'+___+'.csv',delimiter=',',index_col=0)
->     ____
->     ____
->     ____
->     return avg
-> ~~~
-> {: .python}
->
-> 3. How would you generalize this function
->    if you did not know beforehand which specific years occurred as columns in the data?
->    For instance, what if we also had data from years ending in 1 and 9 for each decade?
->    (Hint: use the columns to filter out the ones that correspond to the decade,
->    instead of enumerating them in the code.) 
+> Write a function that sings '99 bottles of beer on the wall', for however
+> many verses the singer wishes to sing it
 >
 > > ## Solution
 > >
-> > 1. 
-> >
-> > ~~~ 
-> > year = 1983
-> > gdp_decade = 'gdpPercap_' + str(year // 10)
-> > avg = (japan.ix[gdp_decade + '2'] + japan.ix[gdp_decade + '7']) / 2
 > > ~~~
-> > {: .python}
 > >
-> > 2.
+> > def bottles_of_beer(num_bottles):
+> >     for bottle in range(1, num_bottles):
+> >         print(bottle, "bottles of beer on the wall")
+> >         print(bottle, "bottles of beer")
+> >         print("Take one down and pass it around")
+> >         print(bottle - 1, "bottles of beer on the wall\n")
 > >
+> > bottles_of_beer(4)
 > > ~~~
-> > def avg_gdp_in_decade(country, continent, year):
-> >     df = pd.read_csv('gapminder_gdp_' + continent + '.csv', index_col=0)
-> >     c = df.ix[country]
-> >     gdp_decade = 'gdpPercap_' + str(year // 10)
-> >     avg = (c.ix[gdp_decade + '2'] + c.ix[gdp_decade + '7'])/2
-> >     return avg
-> > ~~~
-> > {: .python}
-> >
-> > 3. We need to loop over the reported years
-> >    to obtain the average for the relevant ones in the data.
-> >
-> > ~~~
-> > def avg_gdp_in_decade(country, continent, year):
-> >     df = pd.read_csv('gapminder_gdp_' + continent + '.csv', index_col=0)
-> >     c = df.ix[country] 
-> >     gdp_decade = 'gdpPercap_' + str(year // 10)
-> >     total = 0.0
-> >     num_years = 0
-> >     for yr_header in c.index: # c's index contains reported years
-> >         if yr_header.startswith(gdp_decade):
-> >             total = total + c.ix[yr_header]
-> >             num_years = num_years + 1
-> >     return total/num_years
-> > ~~~
-> > {: .python}
+> > {: python}
 > {: .solution}
 {: .challenge}
 

@@ -175,6 +175,22 @@ final velocity: 30.0
     to show the final value of `velocity`,
     since its value is updated by the last iteration of the loop.
 
+> ## Find the First
+>
+> Fill in the blanks to create a function that takes a list of numbers
+> as an argument and returns the first negative value in the list.
+> What does your function do if no negative number exists? What if the
+> list is empty?
+>
+> ~~~
+> def first_negative(values):
+>     for v in ____:
+>         if ____:
+>             return ____
+> ~~~
+> {: .python}
+{: .challenge}
+
 > ## Compound Relations Using `and`, `or`, and Parentheses
 >
 > Often, you want some combination of things to be true.  You can combine
