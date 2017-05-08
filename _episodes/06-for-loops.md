@@ -88,6 +88,9 @@ IndentationError: unexpected indent
 
 ## A `for'-loop is made up of a collection, a loop variable, and a body.
 
+'Collections' are datatypes that can be iterated over, like a list or a 
+string. Other common collections are called 'dictionaries' and 'tuples'.
+
 ~~~
 for number in [2, 3, 5]:
     print(number)
