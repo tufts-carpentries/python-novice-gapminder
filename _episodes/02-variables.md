@@ -1,6 +1,6 @@
 ---
 title: "Variables and Assignment"
-teaching: 15
+teaching: 10
 exercises: 10
 questions:
 - "How can I store data in programs?"
